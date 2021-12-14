@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   sessions: "admin/sessions"
   }
   #顧客用
-  devise_for :customers,skip: [:passwords,], controllers: {
+  devise_for :customers,skip: [:passwords], controllers: {
     registrations: "customer/registrations",
     sessions: 'customer/sessions'
   }
