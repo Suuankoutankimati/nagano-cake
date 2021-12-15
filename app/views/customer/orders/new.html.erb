@@ -1,0 +1,52 @@
+<div class="container">
+
+      <h2 class="bg-secondary">注文情報入力</h2>
+
+        <%= form_with model: @order, url: confirm_orders_path, local: true do |f| %>
+
+        <h3>支払方法</h3>
+          <div class= "form-group">
+            <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
+            <%= f.label :payment_method, Order.payment_methods_i18n[:credit_card] %>
+          </div>
+          <div class= "form-group">
+            <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
+            <%= f.label :payment_method, Order.payment_methods_i18n[:transfer]%>
+          </div>
+
+        <h3>お届け先</h3>
+          <div class= "form-group">
+            <%= f.radio_button :address_number, 1 %>
+            <%= f.label :address_number_1, "ご自身の住所" %><br />
+            &emsp;〒自分の住所表示(修正)
+          </div>
+          <div class= "form-group">
+            <%= f.radio_button :address_number, 2 %>
+            <%= f.label :address_number_2, "登録済住所から選択" %><br />
+            &emsp;<%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :full_address) %>
+          </div>
+          <div class= "form-group">
+            <%= f.radio_button :address_number, 3 %>
+            <%= f.label :address_number_3, "新しいお届け先" %>
+            <table>
+              <tr>
+                <td>&emsp;<%= f.label :post_code, "郵便番号(ハイフンなし)" %></td>
+                <td><%= f.text_field :post_code %></td>
+              </tr>
+              <tr>
+                <td>&emsp;<%= f.label :address, "住所" %></td>
+                <td><%= f.text_field :address %></td>
+              </tr>
+              <tr>
+                <td>&emsp;<%= f.label :name, "宛名" %></td>
+                <td><%= f.text_field :name %></td>
+              </tr>
+            </table>
+          </div>
+
+          <div class= "form-group">
+            <%= f.submit "確認画面へ進む", class: 'btn btn-info' %>
+          </div>
+        <% end %>
+
+  </div>
