@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
   
-
-  
   #管理者
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
@@ -31,7 +29,7 @@ Rails.application.routes.draw do
       end
     end
     
-    resources :addresses,only: [:index,:edit] do
+    resources :addresses,only: [:index,:edit,:create,:update,:destroy] do
     end
   end
   
