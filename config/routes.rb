@@ -8,4 +8,13 @@ Rails.application.routes.draw do
     registrations: "customer/registrations",
     sessions: 'customer/sessions'
   }
+
+  scope module: :customer do
+    resources :orders,only: [:index,:show,:new,:create] do
+        collection do
+          post 'confirm'
+          get 'completion'
+        end
+      end
+  end
 end
