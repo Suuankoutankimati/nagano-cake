@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     root "homes#top"
     resources :items
     resources :genres
+
     resources :orders,only: [:index,:show]
     resources :customers
     
