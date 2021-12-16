@@ -1,24 +1,6 @@
-# README
+item周りの新規登録画面、編集画面、商品一覧画面、商品詳細画面、create,updateルーティングの完成、
+ジャンルとアイテムのアソシエーション item 1   genres N
+itemのステータスでエナムで販売中か売り切れかを変更する。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+enum sex: %i( man woman )
+、、といった具合でこの場合だと0=>man,1=>womanを返す属性名、属性の値が新しく定義されるようになります。

@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+
+  root 'homes#top'
+  namespace :admin do
+    resources :items
+    resources :genres
+  end
   
   namespace :customer do
     get 'cart_items/index'
