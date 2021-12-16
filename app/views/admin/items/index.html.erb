@@ -11,7 +11,7 @@
       <% @items.each do |item| %>
         <tr>
           <th><%= link_to item.name, admin_item_path(item) %></th>
-          <th><%= item.genre.name %></th>
+          <th><%#= item.genre.name %></th>
           <th><%= item.non_tax_price %>　円</th>
           <th><%= item.introduction %></th>
           <th><% if item.is_active == true %>
