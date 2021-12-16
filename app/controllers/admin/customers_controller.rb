@@ -1,7 +1,7 @@
 class Admin::CustomersController < ApplicationController
 
    def index
-    @customers = Customer.with_is_deleted
+    @customers = Customer.all
    end
   # 論理削除されたデータも「含める」
   # Model.with_deleted
