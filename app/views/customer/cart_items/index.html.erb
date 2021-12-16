@@ -1,2 +1,31 @@
-<h1>Customer::CartItems#index</h1>
-<p>Find me in app/views/customer/cart_items/index.html.erb</p>
+<div class="container">
+    
+    <h2>ショッピングカート</h2>
+    
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="col-4">商品名</th>
+                    <th class="col-1">単価(税込)</th>
+                    <th class="col-1">数量</th>
+                    <th class="col-1">小計</th>
+                    <th class="col-1"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <% @sum = 0 %>
+                    <% @cart_items.each do |cart_item| %>
+                        <td><%= cart_item.name %></td>
+                        <td><%= cart_item.item.with_tax_price %></td>
+                        <td><%= cart_item.item.amount %></td>
+                        <td><%= cart_item.subtotal %></td>
+                        <% @sum　+= cart_item.subtotal %>
+                    <% end %>
+                    <td><%= @sum %></td>
+                </tr>
+          </tbody>
+        </table>
+    </div>
+</div>
