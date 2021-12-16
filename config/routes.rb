@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  namespace :customer do
+    get 'cart_items/index'
+  end
   #管理者
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
@@ -30,6 +33,12 @@ Rails.application.routes.draw do
     end
     
     resources :addresses,only: [:index,:edit,:create,:update,:destroy] do
+    end
+    
+    resources :cart_items,only:[:index,:update,:create,:destroy] do
+      collection do
+        delete "destroy_all"
+      end
     end
     
     resources :items,only: [:index,:show]
