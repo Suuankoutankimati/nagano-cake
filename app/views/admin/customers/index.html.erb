@@ -1,0 +1,45 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-10 p-6">
+      <h1>会員一覧画面</h1>
+ 
+      <table class="table">
+        <thead>
+          <tr class="active">
+            <th>会員名</th>
+            <th></th>
+            <th></th>
+            <th>会員ステータス</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @customers.each do |costomer| %>
+          <tr>
+            <td>
+              <%= link_to admin_customer_path(customer) do %>
+               <%= order.customer.first_name %><%= order.customer.last_name %>
+              <% end %>
+            </td>
+            <td></td>
+            
+            <td>
+              <% if costomer.is_deleted == ture %>
+                  <p>退会</p>
+                <% else %>
+                  <p>会員</p>
+              
+               
+            </td>
+          </tr>
+          <% end%>
+        </tbody>
+       <% end %>
+        
+
+      </table>
+    </div>
+  </div>
+
+</div>

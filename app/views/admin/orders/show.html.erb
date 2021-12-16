@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-10 p-6">
+    <h3>会員詳細画面</h3>
+    <table class="table table-noborder">
+      <tbody>
+        <tr>
+          <th>顧客ID</th>
+          <td>
+            <%= @customer.id %>
+            <!--%= @customer.is_deleted ?  %-->
+            
+            <% if @customer.is_deleted? %>
+              <span class="btn btn-info">退会済み</span>
+            <% else %>
+              <span class="btn btn-info">会員</span>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <!--名前をlink_toでその人の会員詳細に移動する-->
+          <th>氏名</th>
+          <td><%= @customer.first_name %>　<%= @customer.last_name %></td>
+        </tr>
+        <tr>
+          <th>フリガナ</th>
+          <td><%= @customer.first_name_kana %>　<%= @customer.last_name_kana %></td>
+        </tr>
+        <tr>
+          <th>郵便番号</th>
+          <td><%= @customer.post_code %></td>
+        </tr>
+        <tr>
+          <th>住所</th>
+          <td><%= @customer.address %></td>
+        </tr>
+        <tr>
+          <th>電話番号</th>
+          <td><%= @customer.phone_number %></td>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+          <td><%= @customer.email %></td>
+        </tr>
+        <tr>
+          <td>
+            <a><%= link_to "編集", edit_admin_customer_path(@customer),class: "btn btn-info" %></a>
+          </td>
+          <td>
+            <!--link_toで商品一覧に戻す。-->
+            <注文履歴一覧を見る>
+          </td>
+        </tr>
