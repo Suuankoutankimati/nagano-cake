@@ -1,1 +1,12 @@
 <h1>注文情報確認</h1>
+
+<table>
+    <tr>
+        <td>支払方法</td>
+        <td><%= @order.payment_method_i18n %></td>
+    </tr>
+    <tr>
+        <td>お届け先</td>
+        <td>〒<%= @order.post_code + @order.address + @order.name %></td>
+    </tr>
+</table>
