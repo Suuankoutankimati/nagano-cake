@@ -31,6 +31,8 @@ Rails.application.routes.draw do
     
     resources :addresses,only: [:index,:edit,:create,:update,:destroy] do
     end
+    
+    resources :items,only: [:index,:show]
   end
   
 end
