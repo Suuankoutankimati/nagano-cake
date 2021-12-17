@@ -15,19 +15,19 @@
         </thead>
 
         <tbody>
-          <% @customers.each do |costomer| %>
+          <% @customers.each do |customer| %>
           <tr>
             <td>
               <%= link_to admin_customer_path(customer) do %>
-               <%= order.customer.first_name %><%= order.customer.last_name %>
+               <%= customer.first_name %><%= customer.last_name %>
               <% end %>
             </td>
             <td></td>
             
             <td>
-              <% if costomer.is_deleted == ture %>
+              <% if customer.is_deleted == true %>
                   <p>退会</p>
-                <% else %>
+                <% elsif customer.is_deleted == false %>
                   <p>会員</p>
               
                
