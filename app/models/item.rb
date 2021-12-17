@@ -3,8 +3,8 @@ class Item < ApplicationRecord
     belongs_to :genre,foreign_key: 'genre_id',optional: true
     attachment :image
 
-    validates :name, presence: true
-    validates :non_tax_price, presence: true
-	validates :introduction, presence: true
-
+    # 税込金額を求めるメソッド
+    def with_tax_price
+        (non_tax_price * 1.1).floor
+    end
 end
