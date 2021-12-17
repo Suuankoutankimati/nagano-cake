@@ -5,7 +5,12 @@
             <span class="navbar-text">
                 <% if customer_signed_in? %>
                     ようこそ、<%= current_customer.last_name %>さん！
+                <% elsif admin_signed_in? %>
+                    ようこそ、管理者ページです。
                 <% end %>
+                
+                
+                
             </span>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -24,6 +29,22 @@
                         <li><%= link_to ' ログイン', new_customer_session_path ,class: 'nav-link'%></li>
                     <% end %>
                 </ul>
+                <!--条件分岐もうちょいやる-->
+                <ul class="navbar-nav ml-auto">
+                     <% if admin_signed_in? %>
+                    
+                     
+                        <li><%= link_to "商品一覧" , admin_items_path,class: "nav-link" %></li>
+                        <li><%= link_to "会員一覧" , admin_customers_path,class: "nav-link" %></li>
+                        <li><%= link_to "注文履歴一覧" , admin_orders_path,class: "nav-link" %></li>
+                        <li><%= link_to "ジャンル管理" , admin_genres_path,class: "nav-link" %></li>
+                        <li><%= link_to destroy_admin_session_path, method: :delete,class: "nav-link" do %>ログアウト</li>
+            　　　　<% end %>
+            　　　　<% end %>
+                  </ul>
+                
+                
+
                 <ul class="navbar-nav ml-auto">
                     <form class="d-flex">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

@@ -1,4 +1,5 @@
 <h1>商品一覧画面</h1>
+<div><%= link_to("商品登録", new_admin_item_path, class: "btn btn-sm btn-success") %></div>
  <table class="table table-hover table-inverse">
   <thead>
     <th>商品名</th>
@@ -11,13 +12,13 @@
       <% @items.each do |item| %>
         <tr>
           <th><%= link_to item.name, admin_item_path(item) %></th>
-          <th><%#= item.genre.name %></th>
+          <th><%= item.genre.name %></th>
           <th><%= item.non_tax_price %>　円</th>
           <th><%= item.introduction %></th>
           <th><% if item.is_active == true %>
 					販売中
-					<% else %>
-					販売停止中
+					<% elsif item.is_active == false %>
+					売切れ
 					<% end %>
 				<% end %>
 				</th>

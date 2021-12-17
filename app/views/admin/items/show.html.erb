@@ -1,4 +1,9 @@
 <h1>商品詳細画面</h1>
+ <div><%= link_to("商品編集", edit_admin_item_path(@item.id), class: "btn btn-sm btn-success") %></div>
+
+ 	<div class="col-xs-5">
+		<%= attachment_image_tag(@item, :image,size: "300x217", fallback: "no_image.jpg") %>
+	</div>
   <table class="table">
 	  <tr>
 		<th>商品名</th>
@@ -10,20 +15,20 @@
 		</tr>
 		<tr>
 		<th>ジャンル</th>
-		<th><%#= @item.genre.name %></th>
+		<th><%= @item.genre.name %></th>
 		</tr>
 		<tr>
 		<th>商品説明</th>
-		<th><%= @item.introdution %></th>
+		<th><%= @item.introduction %></th>
 		</tr>
 		<tr>
-			<th>販売ステータス</th>
-			<th>
-				<% if @item.is_active == true %>
-				販売中
-				<% else %>
-				売切れ
-				<% end %>
-	    	 </th>
+		<th>販売ステータス</th>
+		<th>
+			<% if @item.is_active == true %>
+			販売中
+			<% elsif @item.is_active == false %>
+			売切れ
+			<% end %>
+	    </th>
 		</tr>
 		</table>

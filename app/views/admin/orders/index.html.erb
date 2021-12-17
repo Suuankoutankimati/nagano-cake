@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-10 p-6">
+      <h1>注文一覧画面</h1>
+      <h2>本日の注文数  <%= @count %>件</h2>
+      <table class="table">
+        <thead>
+          <tr class="active">
+            <th>購入日時</th>
+            <th>購入者</th>
+            <th>注文個数</th>
+            <th>注文ステータス</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @orders.each do |order| %>
+          <tr>
+            <td><%= link_to order.created_at.strftime("%Y年%m月%d日%H時%M分%S秒 "), admin_order_path(order.id) %></td>
+            
+            <td><%= order.customer.first_name %><%= order.customer.last_name %></td>
+            <% @orderd_item.each do |o| %>
+            <td><% o.quantity %></td>
+            <td><%= order.order_status %></td>
+          </tr>
+          <% end %>
+        </tbody>
+        <% end %>
+
+      </table>
+    </div>
+  </div>
+  <!--雷-->
+  <!--<#%= paginate @orders, class: "paginate" %>-->
+</div>
