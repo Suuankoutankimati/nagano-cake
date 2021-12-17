@@ -1,6 +1,7 @@
 class Customer::CartItemsController < ApplicationController
   def index
     @cart_items = current_customer.cart_items.all
+    
   end
   
   def create
@@ -20,7 +21,9 @@ class Customer::CartItemsController < ApplicationController
   end
   
   def update
-
+    @cart_item = CartItem.find(params[:id])
+    @cart_item.update(amount: params[:cart_item][:amount])
+    redirect_to cart_items_path
   end
   
   def destroy
