@@ -1,19 +1,14 @@
 Rails.application.routes.draw do
 
-
   namespace :admin do
     root "homes#top"
     resources :items
     resources :genres
-
     resources :orders,only: [:index,:show]
     resources :customers
     
   end
 
-  namespace :customer do
-    get 'cart_items/index'
-  end
   #管理者
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
