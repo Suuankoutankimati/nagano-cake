@@ -1,9 +1,14 @@
 class Customer::OrdersController < ApplicationController
+
   def new
     @order = Order.new
   end
 
   def confirm
+    #カートアイテムの確認
+    @cart_items = current_customer.cart_items.all
+    # 合計金額(商品のみ)の算出
+    @total = @cart_items.inject(0) { |sum, item| sum + item.subtotal }
     @order = Order.new(order_params)
     # address_numberの値が"1"のとき
     if params[:order][:address_number] == "1"
@@ -24,8 +29,26 @@ class Customer::OrdersController < ApplicationController
     end
   end
 
+  def create
+    @order = current_customer.orders.new(order_params)
+    @order.save
+    redirect_to completion_orders_path
+  end
+
+  def completion
+  end
+
+  def index
+    @orders = current_customer.orders
+  end
+
+  def show
+    @order = Order.find(params[:id])
+    #@order_details = @order.order_details
+  end
+
   private
   def order_params
-    params.require(:order).permit(:payment_method, :post_code, :address, :name)
+    params.require(:order).permit(:payment_method, :post_code, :address, :name, :total_price)
   end
 end
