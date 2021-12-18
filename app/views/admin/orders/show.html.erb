@@ -9,7 +9,7 @@
           <td>
             <%= @customer.id %>
             <!--%= @customer.is_deleted ?  %-->
-            
+
             <% if @customer.is_deleted? %>
               <span class="btn btn-info">退会済み</span>
             <% else %>
@@ -46,6 +46,42 @@
           <td>
             <a><%= link_to "編集", edit_admin_customer_path(@customer),class: "btn btn-info" %></a>
           </td>
+          <h1>商品一覧画面</h1>
+            <table class="table table-hover table-inverse">
+              <thead>
+                <th>商品名</th>
+                <th>単価</th>
+                <th>数量</th>
+                <th>小計</th>
+                <th>製作ステータス</th>
+              </thead>
+              <tbody>
+                <% @customer.each do |customer| %>
+                <tr>
+                  <th><%= link_to customer.item.name, admin_item_path(item) %></th>
+                  <th><%= customer.item.price %> 円</th>
+                  <th><%= customer.item.amount  %></th>
+                  <th><%= customer.item.price *customer.item.amount  %></th>
+                  <%= form_with(model: customer, url: admin_order_path, method: :patch, local: true) do |f| %>
+                  <th><%= f.select :making_status, Order_detail.making_statuses.keys, class: "making_status-select" %></th>
+                  <th><%= f.submit "更新", class: "btn btn-outline-success" %></th>
+        				<% end %>
+                </tr>
+                <tr>
+                  <th>注文ステータス</th>
+                  <td>
+                  <% if @order.status == 1 %>
+                    <%= form.select :status == 1, class: "status-select" %>
+                  <% else %>
+                    <%= form_with model: @order, url: admin_order_path, method: :patch, local: true do |f| %>
+                      <%= f.select :status, Order.statuses.keys, class: "status" %>
+                      <%= f.submit "更新" , class: "btn btn-outline-success" %>
+                    <% end %>
+                  <% end %>
+                  </td>
+                </tr>
+    </tbody>
+  </table>
           <td>
             <!--link_toで商品一覧に戻す。-->
             <注文履歴一覧を見る>
