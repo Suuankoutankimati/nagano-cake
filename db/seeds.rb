@@ -23,3 +23,4 @@ Item.create!(:genre_id => 4,:name =>" キャンディ ",:non_tax_price => 20 ,:i
 # admin
 
 Admin.create!(:email => 'suuankou@yahoo.co.jp', :password => 'aaaaaa')
+

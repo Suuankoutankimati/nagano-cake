@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
-    belongs_to :genre, optional: true
+
+    belongs_to :genre,foreign_key: 'genre_id',optional: true
     attachment :image
 
     # 税込金額を求めるメソッド
