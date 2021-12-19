@@ -5,6 +5,8 @@ class Customer::OrdersController < ApplicationController
   end
 
   def confirm
+
+
     #カートアイテムの確認
     @cart_items = current_customer.cart_items.all
     # 合計金額(商品のみ)の算出
@@ -39,6 +41,7 @@ class Customer::OrdersController < ApplicationController
       @order_details.order_id = @order.id
       @order_details.item_id = cart_item.item.id
       @order_details.price = cart_item.item.with_tax_price
+
       @order_details.amount = cart_item.amount
       @order_details.making_status = 0
       @order_details.save
@@ -65,4 +68,8 @@ class Customer::OrdersController < ApplicationController
   def order_params
     params.require(:order).permit(:payment_method, :post_code, :address, :name, :total_price)
   end
+  
+  # def order_details
+  #   params.require(:order_details).permit(:order_id, :item_id, :price, :amount, :making_status)
+  # end
 end

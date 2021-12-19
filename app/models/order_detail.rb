@@ -10,3 +10,4 @@ class OrderDetail < ApplicationRecord
   end
 
 end
+
