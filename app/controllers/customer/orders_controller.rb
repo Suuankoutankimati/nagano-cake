@@ -40,8 +40,8 @@ class Customer::OrdersController < ApplicationController
       @order_details = OrderDetail.new
       @order_details.order_id = @order.id
       @order_details.item_id = cart_item.item.id
-      #@order_details.name = cart_item.item.name
-      @order_details.price = cart_item.item.non_tax_price
+      @order_details.price = cart_item.item.with_tax_price
+
       @order_details.amount = cart_item.amount
       @order_details.making_status = 0
       @order_details.save
@@ -60,7 +60,8 @@ class Customer::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    #@order_details = @order.order_details
+    @order_details = @order.order_details
+    @total = @order_details.inject(0) { |sum, item| sum + item.subtotal }
   end
 
   private
