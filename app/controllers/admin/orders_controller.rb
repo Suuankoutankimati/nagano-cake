@@ -20,9 +20,11 @@ class Admin::OrdersController < ApplicationController
   end
 
   def show
+    #アソシエーションでcustomerの情報が入ってるよね？入ってる
     @order = Order.find(params[:id])
-    @orderd_item = @order.orderd_detail
+    #これいらないよね？
     @customer = Customer.find(params[:id])
+    @orderd_item = @order.order_details
     @ordered_items = @order.items
   end
 
