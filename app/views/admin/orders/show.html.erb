@@ -7,7 +7,7 @@
         <tr>
           <th>顧客ID</th>
           <td>
-            <%= @customer.id %>
+            <%= @order.customer.id %>
             <!--%= @customer.is_deleted ?  %-->
 
             <% if @customer.is_deleted? %>
@@ -20,31 +20,31 @@
         <tr>
           <!--名前をlink_toでその人の会員詳細に移動する-->
           <th>氏名</th>
-          <td><%= @customer.first_name %>　<%= @customer.last_name %></td>
+          <td><%= @order.customer.first_name %>　<%= @order.customer.last_name %></td>
         </tr>
         <tr>
           <th>フリガナ</th>
-          <td><%= @customer.first_name_kana %>　<%= @customer.last_name_kana %></td>
+          <td><%= @order.customer.kana_last_name %>　<%= @order.customer.kana_first_name %></td>
         </tr>
         <tr>
           <th>郵便番号</th>
-          <td><%= @customer.post_code %></td>
+          <td><%= @order.customer.post_code %></td>
         </tr>
         <tr>
           <th>住所</th>
-          <td><%= @customer.address %></td>
+          <td><%= @order.customer.address %></td>
         </tr>
         <tr>
           <th>電話番号</th>
-          <td><%= @customer.phone_number %></td>
+          <td><%= @order.customer.phone_number %></td>
         </tr>
         <tr>
           <th>メールアドレス</th>
-          <td><%= @customer.email %></td>
+          <td><%= @order.customer.email %></td>
         </tr>
         <tr>
           <td>
-            <a><%= link_to "編集", edit_admin_customer_path(@customer),class: "btn btn-info" %></a>
+            <a><%= link_to "編集", edit_admin_customer_path(@order.customer),class: "btn btn-info" %></a>
           </td>
           <h1>商品一覧画面</h1>
             <table class="table table-hover table-inverse">
@@ -56,34 +56,31 @@
                 <th>製作ステータス</th>
               </thead>
               <tbody>
-                <% @customer.each do |customer| %>
-                <tr>
-                  <th><%= link_to customer.item.name, admin_item_path(item) %></th>
-                  <th><%= customer.item.price %> 円</th>
-                  <th><%= customer.item.amount  %></th>
-                  <th><%= customer.item.price *customer.item.amount  %></th>
-                  <%= form_with(model: customer, url: admin_order_path, method: :patch, local: true) do |f| %>
-                  <th><%= f.select :making_status, Order_detail.making_statuses.keys, class: "making_status-select" %></th>
-                  <th><%= f.submit "更新", class: "btn btn-outline-success" %></th>
-        				<% end %>
-                </tr>
-                <tr>
-                  <th>注文ステータス</th>
-                  <td>
-                  <% if @order.status == 1 %>
-                    <%= form.select :status == 1, class: "status-select" %>
-                  <% else %>
-                    <%= form_with model: @order, url: admin_order_path, method: :patch, local: true do |f| %>
-                      <%= f.select :status, Order.statuses.keys, class: "status" %>
-                      <%= f.submit "更新" , class: "btn btn-outline-success" %>
-                    <% end %>
-                  <% end %>
-                  </td>
-                </tr>
-    </tbody>
-  </table>
-          <td>
-            <!--link_toで商品一覧に戻す。-->
-            <注文履歴一覧を見る>
-          </td>
-        </tr>
+                <%= @orderd_item.orders.each do |customer| %>
+                 <tr>
+                  <th><%#= link_to customer.商品名前, admin_item_path(item) %></th>
+                  <th><%#= customer.item.price %> 円</th>
+                  <th><%= customer.id %></th>
+                  <th><%#= customer.item.price *customer.item.amount  %></th>
+        				 <% end %>
+                   <%#= form_with(model: @order, url: admin_order_path, method: :patch, local: true) do |f| %>
+                  <th><%#= f.select :making_status, Order_detail.making_status.keys, class: "making_status-select" %></th>
+                  <th><%#= f.submit "更新", class: "btn btn-outline-success" %></th>
+        				   <%# end %>
+                 </tr>
+                 <tr>
+                    <th>注文ステータス</th>
+                    <th>
+                       <% if @order.status == 1 %>
+                        <%= form.select :status == 1, class: "status-select" %>
+                       <% else %>
+                         <%= form_with model: @order, url: admin_order_path, method: :patch, local: true do |f| %>
+                          <%= f.select :status, Order.statuses.keys, class: "status" %>
+                          <%= f.submit "更新" , class: "btn btn-outline-success" %>
+                         <% end %>
+                        <% end %>
+                    </th>
+                 </tr>
+                </tbody>
+              </table>
+
