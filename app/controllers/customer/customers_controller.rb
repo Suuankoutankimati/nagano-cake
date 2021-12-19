@@ -20,9 +20,13 @@ class Customer::CustomersController < ApplicationController
   end
   
   def withdraw
+    # 現在ログインしている顧客であること
     @customer = Customer.where(id: current_customer.id)
+    # 退会フラグを立てる
     if @customer.update(is_deleted: true)
+      # ログアウトさせる
       reset_session
+      # flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
       redirect_to root_path
     else
       render "show"

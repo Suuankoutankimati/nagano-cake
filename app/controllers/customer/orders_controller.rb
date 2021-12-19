@@ -34,6 +34,18 @@ class Customer::OrdersController < ApplicationController
   def create
     @order = current_customer.orders.new(order_params)
     @order.save
+    # カート商品を注文詳細へ保存
+    #@cart_items = current_customer.cart_items.all
+    #@cart_items.each do |cart_item|
+      #@order_details = @order.order_details.new
+      #@order_details.item_id = cart_item.item.id
+      #@order_details.name = cart_item.item.name
+      # @order_details.price = cart_item.item.price
+      # @order_details.amount = cart_item.amount
+      # @order_details.save
+    # end
+    # 注文後にカート内の商品を削除
+    # @cart_items.destroy_all
     redirect_to completion_orders_path
   end
 
