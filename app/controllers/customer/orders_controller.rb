@@ -6,7 +6,7 @@ class Customer::OrdersController < ApplicationController
 
   def confirm
 
-    
+
     #カートアイテムの確認
     @cart_items = current_customer.cart_items.all
     # 合計金額(商品のみ)の算出
@@ -34,18 +34,20 @@ class Customer::OrdersController < ApplicationController
   def create
     @order = current_customer.orders.new(order_params)
     @order.save
-    # カート商品を注文詳細へ保存
-    #@cart_items = current_customer.cart_items.all
-    #@cart_items.each do |cart_item|
-      #@order_details = @order.order_details.new
-      #@order_details.item_id = cart_item.item.id
+    #カート商品を注文詳細へ保存
+    @cart_items = current_customer.cart_items.all
+    @cart_items.each do |cart_item|
+      @order_details = OrderDetail.new
+      @order_details.order_id = @order.id
+      @order_details.item_id = cart_item.item.id
       #@order_details.name = cart_item.item.name
-      # @order_details.price = cart_item.item.price
-      # @order_details.amount = cart_item.amount
-      # @order_details.save
-    # end
-    # 注文後にカート内の商品を削除
-    # @cart_items.destroy_all
+      @order_details.price = cart_item.item.non_tax_price
+      @order_details.amount = cart_item.amount
+      @order_details.making_status = 0
+      @order_details.save
+    end
+    #注文後にカート内の商品を削除
+    @cart_items.destroy_all
     redirect_to completion_orders_path
   end
 
@@ -66,4 +68,7 @@ class Customer::OrdersController < ApplicationController
     params.require(:order).permit(:payment_method, :post_code, :address, :name, :total_price)
   end
   
+  # def order_details
+  #   params.require(:order_details).permit(:order_id, :item_id, :price, :amount, :making_status)
+  # end
 end

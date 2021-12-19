@@ -1,8 +1,11 @@
 class Item < ApplicationRecord
 
-    belongs_to :genre,foreign_key: 'genre_id',optional: true
     has_many :order_details
-    has_many :orders, through: :order_details, dependent: :destroy
+    has_many :orders, through: :order_details
+    has_many :cart_items
+    
+    belongs_to :genre,foreign_key: 'genre_id',optional: true
+    
     attachment :image
 
     # 税込金額を求めるメソッド
