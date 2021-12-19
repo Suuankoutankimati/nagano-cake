@@ -1,15 +1,5 @@
  ja:
-    activerecord:
-      models:
-        customer:"会員"
-      attributes:
-        customer:"お客様情報"
-          last_name:"お名前(姓)"
-          first_name:"お名前(名)"
-          kana_last_name:"フリガナ(姓)"
-          kana_first_name:"フリガナ(名)"
-          post_code:"郵便番号"
-          address:""   
+     
     enums:
       order:
         payment_method:

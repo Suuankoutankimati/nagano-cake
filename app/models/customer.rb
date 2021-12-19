@@ -17,6 +17,7 @@ class Customer < ApplicationRecord
   validates :last_name, :first_name, :kana_last_name, :kana_first_name, :address, presence: true
   VALID_POSTAL_CODE_REGEX = /\A\d{7}\z/
   validates :post_code, presence: true, format: {with:VALID_POSTAL_CODE_REGEX}
-  validates :phone_number, presence: true, length: {minimum:10,maxmum:11}
+  VALID_PHONE_NUMBER_REGEX = /\A\d{9,10}\z/
+  validates :phone_number, presence: true, format: {with:VALID_PHONE_NUMBER_REGEX}
   
 end
