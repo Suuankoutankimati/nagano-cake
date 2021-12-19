@@ -4,9 +4,10 @@ Rails.application.routes.draw do
     root "homes#top"
     resources :items
     resources :genres
-    resources :orders,only: [:index,:show]
+    resources :order_details,only: [:update]
+    resources :orders
     resources :customers
-    
+
   end
 
   #管理者

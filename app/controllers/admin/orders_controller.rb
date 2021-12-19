@@ -30,19 +30,21 @@ class Admin::OrdersController < ApplicationController
   end
 
   def update
-    @order = Order.find(params[:id])
-    if @order.update(order_params)
-      @ordered_items.update(status: 1) if @order.status == 1
-      redirect_to request.referer
-    else
-      redirect_to request.referer
-    end
+    order = Order.find(params[:id])
+    status = params[:order][:status].to_i
+    order.update(status: status)
+    redirect_to admin_order_path(order)
   end
+
 
   private
 
   def order_params
     params.require(:order).permit(:status)
+  end
+
+  def order_detail_params
+    params.require(:order_detail).permit(:making_status)
   end
 
 end
