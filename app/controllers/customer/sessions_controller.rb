@@ -21,11 +21,19 @@ class Customer::SessionsController < Devise::SessionsController
   protected
   
   def customer_state
+    # Eメールが一致する顧客情報あるか確認
     @customer = Customer.find_by(email: params[:customer][:email])
-    return if !@customer
-    if @customer.valid_password? (params[:customer][:password]) 
+    if @customer
+      # パスワードが正しい・active_for_authentication?メソッドがfalseであれば、
+      if (@customer.valid_password? (params[:customer][:password]) && (@customer.active_for_authentication? == false))
+        flash[:error] = "退会済みです。"
+        redirect_to new_customer_session_path
+      end
+    else
+      flash[:error] = "必須項目を入力してください。"
     end
   end
+
   
 
   # If you have extra params to permit, append them to the sanitizer.
