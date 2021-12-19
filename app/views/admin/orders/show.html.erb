@@ -10,7 +10,7 @@
             <%= @order.customer.id %>
             <!--%= @customer.is_deleted ?  %-->
 
-            <% if @customer.is_deleted? %>
+            <% if @order.customer.is_deleted? %>
               <span class="btn btn-info">退会済み</span>
             <% else %>
               <span class="btn btn-info">会員</span>
@@ -56,13 +56,13 @@
                 <th>製作ステータス</th>
               </thead>
               <tbody>
-                <%= @orderd_item.orders.each do |customer| %>
+                <% @ordered.each do |customer| %>
                  <tr>
-                  <th><%#= link_to customer.商品名前, admin_item_path(item) %></th>
-                  <th><%#= customer.item.price %> 円</th>
-                  <th><%= customer.id %></th>
-                  <th><%#= customer.item.price *customer.item.amount  %></th>
-        				 <% end %>
+                  <th><%= customer.item.name %></th>
+                  <th><%= customer.price %> 円</th>
+                  <th><%= customer.amount %></th>
+                  <th><%= customer.price * customer.amount  %></th>
+        				<% end %>
                    <%#= form_with(model: @order, url: admin_order_path, method: :patch, local: true) do |f| %>
                   <th><%#= f.select :making_status, Order_detail.making_status.keys, class: "making_status-select" %></th>
                   <th><%#= f.submit "更新", class: "btn btn-outline-success" %></th>

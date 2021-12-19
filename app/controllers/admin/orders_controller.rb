@@ -23,9 +23,10 @@ class Admin::OrdersController < ApplicationController
     #アソシエーションでcustomerの情報が入ってるよね？入ってる
     @order = Order.find(params[:id])
     #これいらないよね？
-    @customer = Customer.find(params[:id])
-    @orderd_item = @order.order_details
-    @ordered_items = @order.items
+    #@customer = Customer.find(params[:id])
+    @ordered = OrderDetail.where(id: @order.id)
+
+    #@ordered_items = @order.items
   end
 
   def update
