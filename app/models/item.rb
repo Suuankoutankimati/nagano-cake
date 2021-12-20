@@ -1,6 +1,11 @@
 class Item < ApplicationRecord
 
+    has_many :order_details
+    has_many :cart_items
+    has_many :orders, through: :order_details
+
     belongs_to :genre,foreign_key: 'genre_id',optional: true
+    
     attachment :image
 
     # 税込金額を求めるメソッド
