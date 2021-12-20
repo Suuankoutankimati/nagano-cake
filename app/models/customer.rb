@@ -14,7 +14,9 @@ class Customer < ApplicationRecord
     super && (is_deleted == false)
   end
 
-  validates :last_name, :first_name, :kana_last_name, :kana_first_name, :address, presence: true
+  VALID_KANA_NAME_REGEX = /\A[ァ-ヴー]+\z/u
+  validates :last_name, :first_name, :address, presence: true
+  validates :kana_last_name, :kana_first_name, presence: true, format: {with:VALID_KANA_NAME_REGEX}
   VALID_POSTAL_CODE_REGEX = /\A\d{7}\z/
   validates :post_code, presence: true, format: {with:VALID_POSTAL_CODE_REGEX}
   VALID_PHONE_NUMBER_REGEX = /\A\d{9,10}\z/

@@ -1,17 +1,18 @@
 <h2>ログイン</h2>
-<%= flash[:error] %>
 
 <h3>会員の方はこちらからログイン</h3>
 <%= form_with model: @customer, url:customer_session_path, id:"new_user", class:"new_user", local: true do |f| %>
 
   <div class="field form-group col-xs-12">
     <%= f.label :"メールアドレス", class:"col-sm-3 form-label" %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"col-sm-6" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"col-sm-6",required: true %>
+    <%= render "customer/shared/error_messages", model: @customer, attribute: :email%>
   </div>
 
   <div class="field form-group col-xs-12">
     <%= f.label :"パスワード", class:"col-sm-3 form-label" %>
-    <%= f.password_field :password, autocomplete: "current-password", class:"col-sm-6" %>
+    <%= f.password_field :password, autocomplete: "current-password", class:"col-sm-6",required: true %>
+    <%= render "customer/shared/error_messages", model: @customer, attribute: :password %>
   </div>
 
   <div class="actions">
