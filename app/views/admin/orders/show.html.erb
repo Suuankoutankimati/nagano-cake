@@ -56,17 +56,17 @@
                 <th>製作ステータス</th>
               </thead>
               <tbody>
-                <% @ordered.each do |customer| %>
+                <% @ordered.each do |order_detail| %>
                  <tr>
-                  <th><%= customer.item.name %></th>
-                  <th><%= customer.price %> 円</th>
-                  <th><%= customer.amount %></th>
-                  <th><%= customer.price * customer.amount %></th>
-                  <th><%= customer.making_status_i18n %>
+                  <th><%= order_detail.item.name %></th>
+                  <th><%= order_detail.price %> 円</th>
+                  <th><%= order_detail.amount %></th>
+                  <th><%= order_detail.price * order_detail.amount %></th>
+                  <th><%= order_detail.making_status_i18n %>
 
                   </th>
                   <th>
-                    <%= form_with(model: [customer, @order], url: admin_order_detail_making_status_path(customer, id: @order.id), method: :patch, local: true) do |f| %>
+                    <%= form_with model:order_detail, url:admin_order_detail_path(order_detail), method: :patch, local: true do |f| %>
                      <%= f.select :making_status, OrderDetail.making_statuses_i18n.keys.map { |genki| [OrderDetail.making_statuses_i18n[genki], genki]}, class: "production_status-select" %></td>
                      <%= f.submit "更新", class: "btn btn-outline-success" %></td>
                     <% end %>
@@ -77,7 +77,7 @@
 
 
                <tr>
-                  <%= form_with model:@order, url: admin_order_path(@order), local: true do |f| %>
+                  <%= form_with model:@order, url:admin_order_path(@order), local: true do |f| %>
                     <%= f.select :status, Order.statuses_i18n.keys.map { |genki| [Order.statuses_i18n[genki], genki]} %>
                     <%= f.submit "更新" , class: "btn btn-outline-success" %>
                    <% end %>
