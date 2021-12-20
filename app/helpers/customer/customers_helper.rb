@@ -1,5 +1,5 @@
 module Customer::CustomersHelper
-  def devise_error_messages!
+  def error_messages
     return "" if resource.errors.empty?
 
     html = ""
