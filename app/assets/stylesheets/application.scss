@@ -16,3 +16,165 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+@import url('https://fonts.googleapis.com/css2?family=Vollkorn&display=swap');
+
+
+
+// 「ログインしました」などのフラッシュ用スタイル
+
+.alert-notice {
+  @extend .alert-info;
+}
+
+.alert-alert {
+  @extend .alert-danger;
+}
+
+// ページ全体フォント、カラー
+body {
+  font-family: 'Vollkorn', serif;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #000000;
+  background-image: none;
+  background-color: #ffffff;
+  margin: 0 auto;
+}
+
+// ヘッダーレイアウト
+.navbar {
+  margin-bottom: 40px;
+}
+
+.navbar-text {
+  margin-right: 10px;
+}
+
+.nav-link {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.navbar-toggler {
+  background-color: #224b37;
+}
+
+.navbar-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+// フッターレイアウト
+footer  {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  justify-content: center;
+  background-color: #ffffff;
+}
+
+.footer-logo {
+    display:flex;
+    justify-content: center;
+}
+
+.shop-info {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 8px;
+}
+
+// サイドバー適用
+
+.leftSide .sidePostage {
+    border: solid 2px #45993c;
+    color: #45993c;
+}
+.leftSide .sidePostage {
+    padding: 10px;
+    font-size: 0.85em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.leftSide .searchArea {
+    margin-bottom: 30px;
+    color: #333;
+}
+.leftSide .sidePostage .pPrice {
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 33px;
+}
+form {
+    display: block;
+    margin-top: 0em;
+}
+.leftSide .searchArea button {
+    background-color: #224b37;
+    color: #fff;
+    border-style: none;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 2px;
+}
+
+// トップページ適用
+.newstable {
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+// 商品詳細ページ適用
+h2.item_title {
+    border-bottom: solid 1px #ccc;
+}
+.item__name {
+    margin: 50px 0 20px;
+    text-align: center;
+    font-size: 18px;
+}
+.item__mainImage {
+    text-align: center;
+}
+.item__price {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    display: block;
+}
+label {
+    font-weight: bold;
+}
+
+// サインアップページ
+
+.title {
+    font-weight: 400;
+    text-align: left;
+    margin-bottom: 30px;
+    border-bottom: solid 1px #cccccc;
+    float: none;
+    width: 100%;
+    max-width: 705px;
+}
+
+// メインコンテンツフォーム
+
+.form-contents {
+  padding : 0 20% 30% 5%;
+}
+
+.form-button {
+    background-color: #224b37;
+    color: #fff;
+    border-style: none;
+    padding: 10px 30px;
+    border-radius: 2px;
+}
+
+.actions {
+    text-align: center;
+    padding: 10px;
+}
+
+.form-comment {
+  padding-top: 20px;
+}
