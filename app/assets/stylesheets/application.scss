@@ -38,7 +38,7 @@ body {
   color: #000000;
   background-image: none;
   background-color: #ffffff;
-  margin: 0 auto; 
+  margin: 0 auto;
 }
 
 // ヘッダーレイアウト
@@ -116,6 +116,33 @@ form {
     border-radius: 2px;
 }
 
+// トップページ適用
+.newstable {
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+// 商品詳細ページ適用
+h2.item_title {
+    border-bottom: solid 1px #ccc;
+}
+.item__name {
+    margin: 50px 0 20px;
+    text-align: center;
+    font-size: 18px;
+}
+.item__mainImage {
+    text-align: center;
+}
+.item__price {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    display: block;
+}
+label {
+    font-weight: bold;
+}
 
 // サインアップページ
 
