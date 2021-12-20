@@ -20,31 +20,29 @@ class Admin::OrdersController < ApplicationController
   end
 
   def show
-    #アソシエーションでcustomerの情報が入ってるよね？入ってる
     @order = Order.find(params[:id])
-    #これいらないよね？
-    #@customer = Customer.find(params[:id])
     @ordered = OrderDetail.where(id: @order.id)
-
-    #@ordered_items = @order.items
   end
 
   def update
-    order = Order.find(params[:id])
-    status = params[:order][:status].to_i
-    order.update(status: status)
-    redirect_to admin_order_path(order)
+    @order = Order.find(params[:id])
+    @ordered = @order.order_details
+    @order.update(order_params)
+    if @order.status == "confirm"
+      @ordered.each do |ordered|
+         #binding.pry
+        ordered.update(making_status: "wait")
+      end
+    end
+    redirect_to admin_order_path(@order)
   end
 
+  
 
   private
 
   def order_params
     params.require(:order).permit(:status)
-  end
-
-  def order_detail_params
-    params.require(:order_detail).permit(:making_status)
   end
 
 end
