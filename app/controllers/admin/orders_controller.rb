@@ -37,26 +37,12 @@ class Admin::OrdersController < ApplicationController
     redirect_to admin_order_path(@order)
   end
 
-  def order_detail_making_status
-    @order = Order.find(params[:id])
-    @ordered = @order.order_details
-    #binding.pry
-    @ordered.update(order_detail_params)
-    if @ordered.making_status == "production"
-      @order.update(status: "production")
-    end
-   redirect_to admin_order_path(@order)
-  end
-
+  
 
   private
 
   def order_params
     params.require(:order).permit(:status)
-  end
-
-  def order_detail_params
-    params.permit(:making_status)
   end
 
 end
