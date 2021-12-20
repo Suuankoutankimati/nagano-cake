@@ -33,3 +33,41 @@
 body {
   font-family: 'Vollkorn', serif;
 }
+
+// サイドバー適用
+body {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #333;
+}
+.leftSide .sidePostage {
+    border: solid 2px #45993c;
+    color: #45993c;
+}
+.leftSide .sidePostage {
+    padding: 10px;
+    font-size: 0.85em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.leftSide .searchArea {
+    margin-bottom: 30px;
+}
+.leftSide .sidePostage .pPrice {
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 33px;
+}
+form {
+    display: block;
+    margin-top: 0em;
+}
+.leftSide .searchArea button {
+    background-color: #224b37;
+    color: #fff;
+    border-style: none;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 2px;
+}
+
