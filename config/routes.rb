@@ -4,10 +4,10 @@ Rails.application.routes.draw do
     root "homes#top"
     resources :items
     resources :genres
-    resources :order_details,only: [:update]
+    #resources :order_details,only: [:update]
     resources :orders
     resources :customers
-
+    patch "order_detail/making_status" => "orders#order_detail_making_status"
   end
 
   #管理者
