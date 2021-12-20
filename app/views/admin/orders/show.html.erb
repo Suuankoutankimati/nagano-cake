@@ -61,48 +61,30 @@
                   <th><%= customer.item.name %></th>
                   <th><%= customer.price %> 円</th>
                   <th><%= customer.amount %></th>
-                  <th><%= customer.price * customer.amount  %></th>
-        				<% end %>
-               <!--    <%#= form_with(model: @ordered, url: admin_order_path, method: :patch, local: true) do |f| %>-->
-               <!--   <th><%#= f.select :making_status, OrderDetail.making_statuses.keys, class: "making_status-select" %></th>-->
-               <!--   <th><%#= f.submit "更新", class: "btn btn-outline-success" %></th>-->
-        				   <!--<%# end %>-->
+                  <th><%= customer.price * customer.amount %></th>
+                  <th><%= customer.making_status_i18n %>
+
+                  </th>
+                  <th>
+                    <%= form_with(model: [customer, @order], url: admin_order_detail_making_status_path(customer, id: @order.id), method: :patch, local: true) do |f| %>
+                     <%= f.select :making_status, OrderDetail.making_statuses_i18n.keys.map { |genki| [OrderDetail.making_statuses_i18n[genki], genki]}, class: "production_status-select" %></td>
+                     <%= f.submit "更新", class: "btn btn-outline-success" %></td>
+                    <% end %>
+          				<% end %>
+                  </th>
+              </tr>
 
 
 
-
-                 <tr>
-                    <th>注文ステータス</th>
-                    <th>
-                       <!--<%# if @order.status == 1 %>-->
-                       <!-- <%#= form.select :status == 1, class: "status-select" %>-->
-                       <!--<%# else %>-->
-                       <!--  <%#= form_with model: @order, url: admin_order_path, method: :patch, local: true do |f| %>-->
-                       <!--   <%#= f.select :status, Order.statuses.keys, class: "status" %>-->
-                       <!--   <%#= f.submit "更新" , class: "btn btn-outline-success" %>-->
-                       <!--  <%# end %>-->
-                       <!-- <%# end %>-->
-                    </th>
-                 </tr>
+               <tr>
+                  <%= form_with model:@order, url: admin_order_path(@order), local: true do |f| %>
+                    <%= f.select :status, Order.statuses_i18n.keys.map { |genki| [Order.statuses_i18n[genki], genki]} %>
+                    <%= f.submit "更新" , class: "btn btn-outline-success" %>
+                   <% end %>
+               </tr>
 
 
-                 <tr>
-        <th>注文ステータス</th>
-        <td>
-        <% if @order.status == 1 %>
-          <%= form.select :status == 1, class: "status-select" %>
-        <% else %>
-        <%= form_with model:@order, url: admin_order_path(@order), method: :patch, local: true do |f| %>
-        <%= f.select :status, options_for_select(@order.statuses.to_a, selected: order.status_before_type_cast) %>
-        <%= f.submit "更新", class:'btn btn-info' %>
-        <% end %>
-          <%#= form_with model: @order, url: admin_order_path, method: :patch, local: true do |f| %>
-            <%#= f.select :status, Order.statuses.keys, class: "order_status" %>
-            <%#= f.submit "更新" , class: "btn btn-outline-success" %>
-          <%# end %>
-        <% end %>
-        </td>
-      </tr>
+
                 </tbody>
               </table>
 
