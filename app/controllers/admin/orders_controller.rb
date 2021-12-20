@@ -17,6 +17,8 @@ class Admin::OrdersController < ApplicationController
     # end
 
     @orders = Order.page(params[:page]).reverse_order
+    @ordered = OrderDetail.where(params[:id])
+    #binding.pry
   end
 
   def show
@@ -37,7 +39,7 @@ class Admin::OrdersController < ApplicationController
     redirect_to admin_order_path(@order)
   end
 
-  
+
 
   private
 
