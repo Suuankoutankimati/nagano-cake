@@ -46,6 +46,10 @@ body {
   margin-bottom: 40px;
 }
 
+.navbar-text {
+  margin-right: 10px;
+}
+
 .nav-link {
   font-weight: 400;
   font-size: 18px;
@@ -138,4 +142,39 @@ h2.item_title {
 }
 label {
     font-weight: bold;
+}
+
+// サインアップページ
+
+.title {
+    font-weight: 400;
+    text-align: left;
+    margin-bottom: 30px;
+    border-bottom: solid 1px #cccccc;
+    float: none;
+    width: 100%;
+    max-width: 705px;
+}
+
+// メインコンテンツフォーム
+
+.form-contents {
+  padding : 0 20% 30% 5%;
+}
+
+.form-button {
+    background-color: #224b37;
+    color: #fff;
+    border-style: none;
+    padding: 10px 30px;
+    border-radius: 2px;
+}
+
+.actions {
+    text-align: center;
+    padding: 10px;
+}
+
+.form-comment {
+  padding-top: 20px;
 }
