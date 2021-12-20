@@ -1,11 +1,15 @@
-<%= attachment_image_tag @items, :image, size:'300x200' %><br />
-<%= @items.name %><br />
-<%= @items.introduction %><br />
-¥<%= @items.with_tax_price.to_s(:dalimited) %>(税込)
+	<%= attachment_image_tag @items, :image, size:'300x200' %><br />
+	<%= @items.name %><br />
+	<%= @items.introduction %><br />
+	¥<%= @items.with_tax_price.to_s(:dalimited) %>(税込)
 
-<%= form_with model: @cart_item, url: cart_items_path, local: true do |f| %>
-	<%= f.hidden_field :customer_id, :value => current_customer.id %>
-	<%= f.hidden_field :item_id, :value => @items.id %>
-	<%= f.select :amount, *[1..10] %>
-	<%= f.submit "カートに入れる", class: 'btn btn-success' %>
-<% end %>
+	<% if customer_signed_in? %>
+		<%= form_with model: @cart_item, url: cart_items_path, local: true do |f| %>
+			<%= f.hidden_field :customer_id, :value => current_customer.id %>
+			<%= f.hidden_field :item_id, :value => @items.id %>
+			<%= f.select :amount, *[1..10] %>
+			<%= f.submit "カートに入れる", class: 'btn btn-success' %>
+		<% end %>
+	<% else %>
+		<%= link_to ' ログイン', new_customer_session_path ,class: "btn btn-success" %>
+	<% end %>

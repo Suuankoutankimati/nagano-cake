@@ -8,16 +8,16 @@ class Customer < ApplicationRecord
   has_many :cart_items
   has_many :addresses
   has_many :orders
-  
+
   # ログインする時に退会済みの顧客を弾くためのメソッド
   def active_for_authentication?
     super && (is_deleted == false)
   end
-  
+
   validates :last_name, :first_name, :kana_last_name, :kana_first_name, :address, presence: true
   VALID_POSTAL_CODE_REGEX = /\A\d{7}\z/
   validates :post_code, presence: true, format: {with:VALID_POSTAL_CODE_REGEX}
   VALID_PHONE_NUMBER_REGEX = /\A\d{9,10}\z/
   validates :phone_number, presence: true, format: {with:VALID_PHONE_NUMBER_REGEX}
-  
+
 end
