@@ -30,6 +30,48 @@
   @extend .alert-danger;
 }
 
+// ページ全体フォント、カラー
 body {
   font-family: 'Vollkorn', serif;
+  color: #000000;
+  background-image: none;
+  background-color: #ffffff;
+  margin: 0 auto; 
+}
+
+// ヘッダーレイアウト
+.navbar {
+  margin-bottom: 40px;
+}
+
+.nav-link {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.navbar-toggler {
+  background-color: #224b37;
+}
+
+.navbar-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+// フッターレイアウト
+footer  {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  justify-content: center;
+  background-color: #ffffff;
+}
+
+.footer-logo {
+    display:flex;
+    justify-content: center;
+}
+
+.shop-info {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 8px;
 }
