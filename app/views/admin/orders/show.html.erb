@@ -13,7 +13,7 @@
             <% if @order.customer.is_deleted? %>
               <span class="btn btn-info">退会済み</span>
             <% else %>
-              <span class="btn btn-info">会員</span>
+              <span class="btn btn-info">  会員</span>
             <% end %>
           </td>
         </tr>
@@ -23,26 +23,38 @@
           <td><%= @order.customer.first_name %>　<%= @order.customer.last_name %></td>
         </tr>
         <tr>
+          <th>注文日</th>
+          <td><%= @order.created_at.strftime("%Y年%m月%d日 ") %></td>
+        </tr>
+        <tr>
           <th>フリガナ</th>
           <td><%= @order.customer.kana_last_name %>　<%= @order.customer.kana_first_name %></td>
         </tr>
         <tr>
-          <th>郵便番号</th>
-          <td><%= @order.customer.post_code %></td>
+          <th>配送先</th>
+          <td><%= @order.address %></td>
         </tr>
         <tr>
-          <th>住所</th>
-          <td><%= @order.customer.address %></td>
+          <th>支払い方法</th>
+          <td><%= @order.payment_method_i18n %></td>
         </tr>
-        <tr>
-          <th>電話番号</th>
-          <td><%= @order.customer.phone_number %></td>
-        </tr>
-        <tr>
-          <th>メールアドレス</th>
-          <td><%= @order.customer.email %></td>
-        </tr>
-        <tr>
+        <!--<tr>-->
+        <!--  <th>郵便番号</th>-->
+        <!--  <td><%#= @order.customer.post_code %></td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+        <!--  <th>住所</th>-->
+        <!--  <td><%#= @order.customer.address %></td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+        <!--  <th>電話番号</th>-->
+        <!--  <td><%#= @order.customer.phone_number %></td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+        <!--  <th>メールアドレス</th>-->
+        <!--  <td><%#= @order.customer.email %></td>-->
+        <!--</tr>-->
+        <!--<tr>-->
           <td>
             <a><%= link_to "編集", edit_admin_customer_path(@order.customer),class: "btn btn-info" %></a>
           </td>
@@ -53,6 +65,8 @@
                 <th>単価</th>
                 <th>数量</th>
                 <th>小計</th>
+                <th>送料</th>
+                <th>請求額</th>
                 <th>製作ステータス</th>
               </thead>
               <tbody>
@@ -62,6 +76,8 @@
                   <th><%= order_detail.price %> 円</th>
                   <th><%= order_detail.amount %></th>
                   <th><%= order_detail.price * order_detail.amount %></th>
+                  <th>800</th>
+                  <th><%= order_detail.price * order_detail.amount + 800 %></th>
                   <th><%= order_detail.making_status_i18n %>
 
                   </th>
