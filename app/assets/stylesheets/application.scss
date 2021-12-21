@@ -277,6 +277,7 @@ dl {
 
 .image {
   background-image: url(genki.jpg)
+}
 
 // 注文確認画面
 .paymentmethod {
@@ -284,6 +285,7 @@ dl {
 }
 .orderconfirmation {
     margin: 60px 0 90px 0;
+}
 
  // 注文情報入力
 .address-select, .pay-select{
@@ -292,7 +294,7 @@ dl {
     background-color: #dddddd;
     border-bottom: 1px solid #ffffff;
     padding: 5px 0 8px 5px;
-   
+
 }
 
 .address-list, .pay-list {
