@@ -1,5 +1,5 @@
 class Admin::OrderDetailsController < ApplicationController
-
+  # before_action :if_not_admin
   def update
 
     @ordered = OrderDetail.find(params[:id])
@@ -17,5 +17,8 @@ class Admin::OrderDetailsController < ApplicationController
   def order_detail_params
     params.require(:order_detail).permit(:making_status)
   end
-
+  
+  # def if_not_admin
+  #   redirect_to new_admin_session_path unless admin_signed_in?
+  # end
 end
