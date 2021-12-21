@@ -1,83 +1,89 @@
-<div class="mainContents col-sm-9 col-sm-push-3 col-md-9 col-md-push-3">
-  <h1 class="subtitle">Sign Up</h1>
-  
-    <div class="container form-contents">
-      <p>お客様情報をご入力ください。</p>
-      <%= form_with model: @customer, url:customer_registration_path, id:"new_user", class:"new_user", local: true do |f| %>
-        <%= error_messages %>
+ <div class="container">
+  <div class="row">
+    <%= render "layouts/sidebar" %>
 
-        <div class="field form-group row">
-          <div class="col-md-6 mb-3">
-          <%= f.label :"姓", class:"form-label" %>
-          <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class:"form-control", required: true %>
+    <div class="mainContents col-sm-9 col-sm-push-3 col-md-9 col-md-push-3">
+      <h1 class="subtitle">Sign Up</h1>
+      
+        <div class="container form-contents">
+          <p>お客様情報をご入力ください。</p>
+          <%= form_with model: @customer, url:customer_registration_path, id:"new_user", class:"new_user", local: true do |f| %>
+            <%= error_messages %>
+    
+            <div class="field form-group row">
+              <div class="col-md-6 mb-3">
+              <%= f.label :"姓", class:"form-label" %>
+              <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class:"form-control", required: true %>
+              </div>
+              <div class="col-md-6 mb-3">
+              <%= f.label :"名", class:"form-label" %>
+              <%= f.text_field :first_name, autoforcus: true, autocomplete: "first_name", class:"form-control", required: true %>
+              </div>
+            </div>
+    
+            <div class="field form-group row">
+              <div class="col-md-6 mb-3">
+              <%= f.label :"セイ",class:"form-label" %>
+              <%= f.text_field :kana_last_name, autofocus: true, autocomplete: "kana_last_name", class:"form-control", required: true %>
+              </div>
+              <div class="col-md-6 mb-3">
+              <%= f.label :"メイ",class:"form-label" %>
+              <%= f.text_field :kana_first_name, autofocus: true, autocomplete: "kana_first_name", class:"form-control", required: true %>
+              </div>
+            </div>
+    
+            <div class="field form-group row">
+              <div class="col-md-12 mb-6">
+              <%= f.label :"メールアドレス", class:"form-label" %>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", required: true %>
+              </div>
+            </div>
+    
+            <div class="field form-group row">
+              <div class="col-md-12 mb-6">
+              <%= f.label :"郵便番号(ハイフンなし)", class:"form-label" %>
+              <%= f.text_field :post_code, autofocus: true, autocomplete: "post_code", class:"form-control", required: true %>
+              </div>
+            </div>
+    
+            <div class="field form-group row">
+              <div class="col-md-12 mb-6">
+              <%= f.label :"住所", class:"form-label" %>
+              <%= f.text_field :address, autofocus: true, autocomplete: "address", class:"form-control", required: true %>
+              </div>
+            </div>
+    
+            <div class="field form-group row">
+              <div class="col-md-12 mb-6">
+              <%= f.label :"電話番号(ハイフンなし)", class:"form-label" %>
+              <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number", class:"form-control", required: true %>
+              </div>
+            </div>
+    
+            <div class="field form-group row">
+              <div class="col-md-12 mb-6">
+              <%= f.label :"パスワード(6文字以上)", class:"form-label" %>
+              <%= f.password_field :password, autocomplete: "new-password", class:"form-control", required: true %>
+              </div>
+            </div>
+    
+            <div class="field form-group row">
+              <div class="col-md-12 mb-6">
+              <%= f.label :"パスワード(確認用)", class:"form-label" %>
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control", required: true %>
+              </div>
+            </div>
+    
+            <div class="actions">
+              <%= f.submit "新規登録", class:"form-button" %>
+            </div>
+            <% end %>
+    
+            <div class="form-comment text-right">
+              <span>既に登録済みの方</span>
+              <span><%= render "customer/shared/links" %></span>からログインしてください。
+            </div>
           </div>
-          <div class="col-md-6 mb-3">
-          <%= f.label :"名", class:"form-label" %>
-          <%= f.text_field :first_name, autoforcus: true, autocomplete: "first_name", class:"form-control", required: true %>
-          </div>
-        </div>
-
-        <div class="field form-group row">
-          <div class="col-md-6 mb-3">
-          <%= f.label :"セイ",class:"form-label" %>
-          <%= f.text_field :kana_last_name, autofocus: true, autocomplete: "kana_last_name", class:"form-control", required: true %>
-          </div>
-          <div class="col-md-6 mb-3">
-          <%= f.label :"メイ",class:"form-label" %>
-          <%= f.text_field :kana_first_name, autofocus: true, autocomplete: "kana_first_name", class:"form-control", required: true %>
-          </div>
-        </div>
-
-        <div class="field form-group row">
-          <div class="col-md-12 mb-6">
-          <%= f.label :"メールアドレス", class:"form-label" %>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", required: true %>
-          </div>
-        </div>
-
-        <div class="field form-group row">
-          <div class="col-md-12 mb-6">
-          <%= f.label :"郵便番号(ハイフンなし)", class:"form-label" %>
-          <%= f.text_field :post_code, autofocus: true, autocomplete: "post_code", class:"form-control", required: true %>
-          </div>
-        </div>
-
-        <div class="field form-group row">
-          <div class="col-md-12 mb-6">
-          <%= f.label :"住所", class:"form-label" %>
-          <%= f.text_field :address, autofocus: true, autocomplete: "address", class:"form-control", required: true %>
-          </div>
-        </div>
-
-        <div class="field form-group row">
-          <div class="col-md-12 mb-6">
-          <%= f.label :"電話番号(ハイフンなし)", class:"form-label" %>
-          <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number", class:"form-control", required: true %>
-          </div>
-        </div>
-
-        <div class="field form-group row">
-          <div class="col-md-12 mb-6">
-          <%= f.label :"パスワード(6文字以上)", class:"form-label" %>
-          <%= f.password_field :password, autocomplete: "new-password", class:"form-control", required: true %>
-          </div>
-        </div>
-
-        <div class="field form-group row">
-          <div class="col-md-12 mb-6">
-          <%= f.label :"パスワード(確認用)", class:"form-label" %>
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control", required: true %>
-          </div>
-        </div>
-
-        <div class="actions">
-          <%= f.submit "新規登録", class:"form-button" %>
-        </div>
-        <% end %>
-
-        <div class="form-comment text-right">
-          <span>既に登録済みの方</span>
-          <span><%= render "customer/shared/links" %></span>からログインしてください。
         </div>
       </div>
     </div>
