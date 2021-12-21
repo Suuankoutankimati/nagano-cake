@@ -9,7 +9,10 @@ class Order < ApplicationRecord
   enum status: { wait: 0, confirm: 1, production: 2,preparation: 3,completion: 4 }
 
   attribute :shipping_cost, default: 800
-  
-  
+
+  def subtotal
+    item.with_tax_price * amount
+  end
+
 
 end

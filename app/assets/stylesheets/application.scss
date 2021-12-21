@@ -259,6 +259,25 @@ dl {
   font-size: 16px;
 }
 
+
+//管理者
+
+
+.pin {
+  color: #192;
+}
+
+.log {
+  color: #111;
+}
+
+.form {
+  text-align: center;
+}
+
+.image {
+  background-image: url(genki.jpg)
+
 // 注文確認画面
 .paymentmethod {
     margin: 40px 0 30px 0;
@@ -287,5 +306,6 @@ select {
   border-radius: 2px;
   height: 40px;
   width: 80%;
+
 
 }

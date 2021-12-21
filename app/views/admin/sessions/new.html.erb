@@ -1,26 +1,63 @@
-<h2>Log in</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+  <div class="container">
+    <div class="row">
+      <h1 class="col-md-1">
+        <section class="log">管理者ログイン画面</section>
+       </h1>
+      </div>
+      </div>
     </div>
-  <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+      <div class="row">
+       <div class="col-lg-8">
+        <!--<div class="pin">-->
+        <!--│一│一│一│二│二│二│三│三│三│四│◎│◎│◎│</br>-->
+        <!--│萬│萬│萬│萬│萬│萬│萬│萬│萬│萬│◎│◎│◎│</br>-->
+        <!--</div>-->
+      　</div>
+      　</div>
+
+      　<div class="form">
+      　  <div class="image">
+      　 
+
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="form">
+            <%= f.label :email, class: "label" %>
+              <span class="icon is-small is-left">
+                <i class="fas fa-envelope"></i>
+              </span>
+            <p class="has-icons-left">
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", size:"40x3", :placeholder => "email", class: "input" %>
+            </p>
+          </div>
+
+          <div class="form">
+            <%= f.label :password, class: "label" %>
+              <span class="icon is-small is-left">
+                <i class="fas fa-lock"></i>
+              </span>
+            <p class="has-icons-left">
+              <%= f.password_field :password, autocomplete: "current-password", size:"40x3", :placeholder => "password", class: "input" %>
+            </p>
+          </div>
+
+          <div class="form">
+            <%= f.submit "Log in", class: "button is-success" %>
+          </div>
+        <% end %>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+      </div>
+      </div>
+
+
+
+
 
 <%= render "admin/shared/links" %>
