@@ -9,5 +9,7 @@ class OrderDetail < ApplicationRecord
     item.with_tax_price * amount
   end
 
+  attribute :shipping_cost, default: 800
+
 end
 
