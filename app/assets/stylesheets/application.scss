@@ -103,10 +103,7 @@ footer  {
     font-size: 25px;
     line-height: 33px;
 }
-form {
-    display: block;
-    margin-top: 0em;
-}
+
 .leftSide .searchArea button {
     background-color: #224b37;
     color: #fff;
@@ -146,21 +143,27 @@ label {
 
 // サインアップページ
 
-.title {
+.subtitle {
     font-weight: 400;
     text-align: left;
     margin-bottom: 30px;
     border-bottom: solid 1px #cccccc;
     float: none;
     width: 100%;
-    max-width: 705px;
+
 }
 
 // メインコンテンツフォーム
 
 .form-contents {
-  padding : 0 20% 30% 5%;
+  padding : 0 15% 10%;
 }
+
+// サイドばーなしメインコンテンツ
+.contents {
+  padding : 0 20% 10%;
+}
+
 
 .form-button {
     background-color: #224b37;
@@ -168,13 +171,121 @@ label {
     border-style: none;
     padding: 10px 30px;
     border-radius: 2px;
+    width: 200px;
+}
+
+.form-button-alert {
+    background-color: #468c6a;
+    color: #fff;
+    border-style: none;
+    padding: 10px 30px;
+    border-radius: 2px;
+    width: 200px;
+}
+
+.form-button-mini {
+    background-color: #224b37;
+    color: #fff;
+    border-style: none;
+    border-radius: 2px;
+    width: 50px;
+}
+
+.form-button-alert-mini {
+    background-color: #468c6a;
+    color: #fff;
+    border-style: none;
+    border-radius: 2px;
+    padding: 5px 10px;
+    width: 50px;
 }
 
 .actions {
     text-align: center;
     padding: 10px;
+    color: #fff;
 }
 
-.form-comment {
-  padding-top: 20px;
+// 全てのリンクの色を変更しない
+a:link, a:visited, a:hover, a:active {
+  color: #fff;
+}
+
+
+// アバウトページ
+.ShopIntroduction {
+    margin: 30px 0;
+}
+
+.abouttable {
+    margin: 20px auto;
+}
+
+.justify-content-center {
+    margin: 30px 0;
+
+}
+
+// 注文一覧
+.show-button {
+    background-color: #224b37;
+    color: #fff;
+    border-style: none;
+    padding: 10px;
+    border-radius: 2px;
+    width: 200px;
+}
+
+// 注文履歴詳細
+.ordertitle {
+    border-bottom: solid 1px #cccccc;
+    margin-bottom: 70px;
+}
+
+// オーダーフロウ
+.order-flow {
+  margin: 5px auto 10px;
+}
+
+// カート
+
+dl {
+    width: 440px!important;
+    border-bottom: 1px solid#ddd;
+    text-align: left;
+}
+
+.totalprice {
+  font-size: 16px;
+}
+
+// 注文確認画面
+.paymentmethod {
+    margin: 40px 0 30px 0;
+}
+.orderconfirmation {
+    margin: 60px 0 90px 0;
+
+ // 注文情報入力
+.address-select, .pay-select{
+    height: 50px;
+    line-height: 50px;
+    background-color: #dddddd;
+    border-bottom: 1px solid #ffffff;
+    padding: 5px 0 8px 5px;
+   
+}
+
+.address-list, .pay-list {
+  margin-bottom: 70px;
+}
+
+select {
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 2px;
+  height: 40px;
+  width: 80%;
+
 }

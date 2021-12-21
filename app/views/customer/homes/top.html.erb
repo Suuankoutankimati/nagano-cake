@@ -1,33 +1,36 @@
-<div class="mainContents col-sm-9 col-sm-push-3 col-md-9 col-md-push-3">
-    <%= image_tag 'cake_top.jpg', size:'750x500' %>
+<div class="container">
+  <div class="row">
+    <%= render "layouts/sidebar" %>
+      <div class="mainContents col-sm-9 col-sm-push-3 col-md-9 col-md-push-3">
+        <%= image_tag 'cake_top.jpg', size:'750x500' %>
+        <p>ようこそ、ながのCAKEへ！</br>
+            このサイトは、ケーキ販売のECサイトになります。</br>
+            会員でない方も商品の閲覧はできますが、購入には会員登録が必要になります。
+        </p>
 
-    <p>ようこそ、ながのCAKEへ！</br>
-        このサイトは、ケーキ販売のECサイトになります。</br>
-        会員でない方も商品の閲覧はできますが、購入には会員登録が必要になります。
-    </p>
-
-    <h2 class="title">News</h2>
-    <table class="newstable table col-10">
-        <tbody>
-          <tr><td>お知らせ [2021/12/21 16:15]</td></tr>
-          <tr><td>クリスマスケーキ予約受付開始！ [2021/12/19 17:07]</td></tr>
-          <tr><td>12月のおすすめ商品 [2021/12/1 10:15]</td></tr>
-        </tbody>
-      </table>
-    <h2 class="item_title">Item</h2>
-      <div class="row">
-        <% @items.each do |item| %>
-            <div class="col-md-4">
-                <%= link_to item_path(item) do %>
-                  <%= attachment_image_tag item, :image, size:'250x200' %>
-                <% end %>
-              	  <br /><%= item.name %>
-              	  <br />¥<%= item.non_tax_price %>
-             </div>
-        <% end %>
+        <h2 class="title">News</h2>
+        <table class="newstable table col-10">
+            <tbody>
+              <tr><td>お知らせ [2021/12/21 16:15]</td></tr>
+              <tr><td>クリスマスケーキ予約受付開始！ [2021/12/19 17:07]</td></tr>
+              <tr><td>12月のおすすめ商品 [2021/12/1 10:15]</td></tr>
+            </tbody>
+          </table>
+        <h2 class="item_title">Item</h2>
+          <div class="row">
+            <% @items.each do |item| %>
+                <div class="col-md-4">
+                    <%= link_to item_path(item) do %>
+                      <%= attachment_image_tag item, :image, size:'250x200' %>
+                    <% end %>
+                  	  <br /><%= item.name %>
+                  	  <br />¥<%= item.non_tax_price %>
+                 </div>
+            <% end %>
+          </div>
+          <div class="allItem text-right">
+            <%= link_to "全ての商品を見る>", items_path %>
+          </div>
       </div>
-      <div class="allItem text-right">
-        <%= link_to "全ての商品を見る>", items_path %>
-      </div>
-
+    </div>
 </div>
