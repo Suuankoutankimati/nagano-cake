@@ -150,14 +150,20 @@ label {
     border-bottom: solid 1px #cccccc;
     float: none;
     width: 100%;
-    max-width: 705px;
+
 }
 
 // メインコンテンツフォーム
 
 .form-contents {
-  padding : 0 20% 10% 5%;
+  padding : 0 20% 10%;
 }
+
+// サイドばーなしメインコンテンツ
+.contents {
+  padding : 0 20% 10%;
+}
+
 
 .form-button {
     background-color: #224b37;
@@ -175,6 +181,23 @@ label {
     padding: 10px 30px;
     border-radius: 2px;
     width: 200px;
+}
+
+.form-button-mini {
+    background-color: #224b37;
+    color: #fff;
+    border-style: none;
+    border-radius: 2px;
+    width: 50px;
+}
+
+.form-button-alert-mini {
+    background-color: #468c6a;
+    color: #fff;
+    border-style: none;
+    border-radius: 2px;
+    padding: 5px 10px;
+    width: 50px;
 }
 
 .actions {
@@ -217,4 +240,22 @@ a:link, a:visited, a:hover, a:active {
 .ordertitle {
     border-bottom: solid 1px #cccccc;
     margin-bottom: 70px;
+}
+
+// オーダーフロウ
+.order-flow {
+  margin: 5px auto 10px;
+}
+
+// カート
+
+dl {
+    width: 440px!important;
+    border-bottom: 1px solid#ddd;
+    text-align: left;
+    
+}
+
+.totalprice {
+  float: right;
 }
