@@ -1,45 +1,40 @@
 
 <div class="container">
   <div class="row">
+    <%= image_tag ('marjan_icon.png'), size: "45x45", alt: "icon" %>
     <div class="col-xs-10 p-6">
       <h1>会員一覧画面</h1>
- 
-      <table class="table">
-        <thead>
-          <tr class="active">
-            <th>会員名</th>
-            <th></th>
-            <th></th>
-            <th>会員ステータス</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <% @customers.each do |customer| %>
-          <tr>
-            <td>
-              <%= link_to admin_customer_path(customer) do %>
-               <%= customer.first_name %><%= customer.last_name %>
-              <% end %>
-            </td>
-            <td></td>
-            
-            <td>
-              <% if customer.is_deleted == true %>
-                  <p>退会</p>
-                <% elsif customer.is_deleted == false %>
-                  <p>会員</p>
-              
-               
-            </td>
-          </tr>
-          <% end%>
-        </tbody>
-       <% end %>
-        
-
-      </table>
     </div>
+    <%= image_tag ('marjan_icon.png'), size: "45x45", alt: "icon" %>
   </div>
-
 </div>
+  <table class="table">
+    <thead>
+      <tr class="col-lg-3 offset-md-6">
+        <th>会員名
+        <%= image_tag ('bunny1.jpeg'), size: "35x35", alt: "icon" %></th>
+        <th>会員ステータス
+        <%= image_tag ('bunny2.jpeg'), size: "35x35", alt: "icon" %></th>
+      </tr>
+    </thead>
+      <tbody>
+        <% @customers.each do |customer| %>
+        <tr>
+          <th>
+            <%= link_to admin_customer_path(customer) do %>
+              <%= customer.first_name %><%= customer.last_name %>
+            <% end %>
+          </th>
+          <th>
+          <!--会員が退会したらtrue,してなければfalse-->
+            <% if customer.is_deleted == true %>
+              <p>退会</p>
+            <% elsif customer.is_deleted == false %>
+              <p>会員</p>
+            <% end %>
+          </th>
+        </tr>
+        <% end %>
+      </tbody>
+  </table>
+
