@@ -156,7 +156,7 @@ label {
 // メインコンテンツフォーム
 
 .form-contents {
-  padding : 0 20% 10%;
+  padding : 0 15% 10%;
 }
 
 // サイドばーなしメインコンテンツ
@@ -257,5 +257,28 @@ dl {
 }
 
 .totalprice {
-  float: right;
+  font-size: 16px;
+}
+
+// 注文情報入力
+.address-select, .pay-select{
+    height: 50px;
+    line-height: 50px;
+    background-color: #dddddd;
+    border-bottom: 1px solid #ffffff;
+    padding: 5px 0 8px 5px;
+   
+}
+
+.address-list, .pay-list {
+  margin-bottom: 70px;
+}
+
+select {
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 2px;
+  height: 40px;
+  width: 80%;
 }
