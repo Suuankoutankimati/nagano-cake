@@ -1,4 +1,5 @@
 class Admin::ItemsController < ApplicationController
+  layout 'admin.html.erb'
   # before_action :if_not_admin
 
   def index
