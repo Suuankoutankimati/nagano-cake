@@ -1,5 +1,5 @@
 class Admin::GenresController < ApplicationController
-
+  # before_action :if_not_admin
   def index
     @genres = Genre.page(params[:page]).reverse_order
     @genre = Genre.new
@@ -25,5 +25,8 @@ class Admin::GenresController < ApplicationController
   def genre_params
     params.require(:genre).permit(:name)
   end
-
+  
+  # def if_not_admin
+  #   redirect_to new_admin_session_path unless admin_signed_in?
+  # end
 end

@@ -1,5 +1,5 @@
 class Admin::OrdersController < ApplicationController
-
+  # before_action :if_not_admin
   def index
     @count = Order.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).count
 
@@ -46,5 +46,9 @@ class Admin::OrdersController < ApplicationController
   def order_params
     params.require(:order).permit(:status)
   end
-
+  
+  
+  # def if_not_admin
+  #   redirect_to new_admin_session_path unless admin_signed_in?
+  # end
 end
