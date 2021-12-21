@@ -1,18 +1,23 @@
-<div class="mainContents col-sm-9 col-sm-push-3 col-md-9 col-md-push-3">
-  <h2 class="sub_title">Item</h2>
-    <span>全<%= @items.count %>件</span>
-      <div class="row">
-        <% @items.each do |item| %>
-          <div class="col-md-4">
-            <%= link_to item_path(item) do %>
-              <%= attachment_image_tag item, :image, size:'250x200' %>
-            <% end %>
-              <br /><%= item.name %>
-              <br />¥<%= item.non_tax_price %>
-          </div>
-        <% end %>
+<div class="container">
+  <div class="row">
+    <%= render "layouts/sidebar" %>
+      <div class="mainContents col-sm-9 col-sm-push-3 col-md-9 col-md-push-3">
+        <h2 class="sub_title">Item</h2>
+          <span>全<%= @items.count %>件</span>
+            <div class="row">
+              <% @items.each do |item| %>
+                <div class="col-md-4">
+                  <%= link_to item_path(item) do %>
+                    <%= attachment_image_tag item, :image, size:'250x200' %>
+                  <% end %>
+                    <br /><%= item.name %>
+                    <br />¥<%= item.non_tax_price %>
+                </div>
+              <% end %>
+            </div>
+            <div class="paginate text-right">
+              <%= paginate @items %>
+            </div>
       </div>
-      <div class="paginate text-right">
-        <%= paginate @items %>
-      </div>
-</div>
+    </div>
+  </div>

@@ -1,28 +1,33 @@
-<div class="mainContents col-sm-9 col-sm-push-3 col-md-9 col-md-push-3">
-	<h2 class="subtitle">Item</h2>
-		<h3 class="item__name"><%= @items.name %></h3>
-			<div class="item__mainImage">
-				<%= attachment_image_tag @items, :image, size:'600x550' %>
-			</div>
-			<div class="row">
-				<div class="col-sm-7 col-md-7 itemText">
-					<%= @items.introduction %>
-				</div>
-				<div class="col-sm-5 col-md-5 itemInfo">
-					<span class="item__price">¥<%= @items.with_tax_price.to_s(:dalimited) %>(税込)</span>
-					<% if customer_signed_in? %>
-						<%= form_with model: @cart_item, url: cart_items_path, local: true do |f| %>
-							<%= f.hidden_field :customer_id, :value => current_customer.id %>
-							<%= f.hidden_field :item_id, :value => @items.id %>
-							<label for="amountSelect">数量</label>
-							<%= f.select :amount, *[1..10] %>
-							<div class="purchaseButton">
-							<%= f.submit "カートに入れる", class:"form-button" %>
+<div class="container">
+  <div class="row">
+    <%= render "layouts/sidebar" %>
+			<div class="mainContents col-sm-9 col-sm-push-3 col-md-9 col-md-push-3">
+				<h2 class="subtitle">Item</h2>
+					<h3 class="item__name"><%= @items.name %></h3>
+						<div class="item__mainImage">
+							<%= attachment_image_tag @items, :image, size:'600x550' %>
+						</div>
+						<div class="row">
+							<div class="col-sm-7 col-md-7 itemText">
+								<%= @items.introduction %>
 							</div>
-						<% end %>
-					<% else %>
-						<%= link_to ' ログイン', new_customer_session_path ,class: "btn btn-success" %>
-					<% end %>
-				</div>
+							<div class="col-sm-5 col-md-5 itemInfo">
+								<span class="item__price">¥<%= @items.with_tax_price.to_s(:dalimited) %>(税込)</span>
+								<% if customer_signed_in? %>
+									<%= form_with model: @cart_item, url: cart_items_path, local: true do |f| %>
+										<%= f.hidden_field :customer_id, :value => current_customer.id %>
+										<%= f.hidden_field :item_id, :value => @items.id %>
+										<label for="amountSelect">数量</label>
+										<%= f.select :amount, *[1..10] %>
+										<div class="purchaseButton">
+										<%= f.submit "カートに入れる", class:"form-button" %>
+										</div>
+									<% end %>
+								<% else %>
+									<%= link_to ' ログイン', new_customer_session_path ,class: "btn btn-success" %>
+								<% end %>
+							</div>
+						</div>
 			</div>
-</div>
+		</div>
+	</div>

@@ -1,6 +1,6 @@
 <div class="mainContents col-sm-9 col-sm-push-3 col-md-9 col-md-push-3">
   <h1 class="subtitle">注文情報入力</h1>
-  
+
   <div class="container form-contents">
     <%= form_with model: @order, url: confirm_orders_path, local: true do |f| %>
       <%= render  "customer/shared/error_messages", resource: @order %>
@@ -30,7 +30,7 @@
             <div class="col-md-12 mb-6">
             <%= f.radio_button :address_number, 2 %>
             <%= f.label :address_number_2, "登録済住所から選択" %><br />
-            &emsp;<%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :full_address) %>
+            &emsp;<%= f.select :address_id, options_from_collection_for_select(@addresses.all, :id, :full_address) %>
           </div>
           </div>
           <div class= "field form-group row justify-content-center">
