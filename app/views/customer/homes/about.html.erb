@@ -1,2 +1,54 @@
-<h1>Customer::Homes#about</h1>
-<p>Find me in app/views/customer/homes/about.html.erb</p>
+<div class="container">
+  <div class="row">
+    <%= render "layouts/sidebar" %>
+<div class="mainContents col-sm-9 col-sm-push-3 col-md-9 col-md-push-3">
+	<h2 class="sub_title">about</h2>
+	<div class="row">
+	  <div class="col-sm-6 col-md-6 photo">
+	    <%= image_tag 'cake_top.jpg', size:'330x220' %>
+	  </div>
+	  <div class="col-sm-6 col-md-6 photo">
+	    <%= image_tag 'cake_top.jpg', size:'330x220' %>
+	  </div>
+	  
+	  <p class="ShopIntroduction">
+	    ながのcakeは2000年に長野市の鶴賀緑町でオープン。シェフの手作りのケーキを提供させていただいています。<br>
+      <br>
+      タルト生地には九州産の小麦粉を使い、サクサクホロホロ。<br>
+      アーモンドのダマンドはバターレスで軽やか。<br>
+      クリームはムースでふんわり奥深い味わい。<br>
+      フルーツは地元筑前町産を中心に使用。<br>
+      生地、ムース、フルーツ、一緒に頬張れば至福の時間。<br>
+      ご贈答用にもぜひ。<br>
+      <br>
+      ○るるぶ、まっぷるなど、各種雑誌に多数掲載。<br>
+      ○「ZIP!」「ヒルナンデス」など、毎年数々の番組で取り上げて頂いております。
+    </p>
+	</div>
+	<div class="row">
+        <table class="abouttable">
+            <tr>
+            <th scope="row">ショップ名</th>
+            <td>ながのcake</td>
+            </tr>
+            <tr>
+            <th scope="row">住所</th>
+            <td>〒380-8512 長野県長野市鶴賀緑町1613番地</td>
+            </tr>
+            <tr>
+            <th scope="row">TEL</th>
+            <td>000-0000-0000</td>
+            </tr>
+            <tr>
+            <th scope="row">営業時間</th>
+            <td>9:30-18:00</td>
+            </tr>
+            <tr>
+            <th scope="row">定休日</th>
+            <td>水曜日</td>
+            </tr>
+        </table>
+    </div>
+</div>
+</div>
+</div>
