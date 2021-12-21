@@ -263,20 +263,28 @@ dl {
 //管理者
 
 
-.pin {
+.adminpin {
   color: #192;
 }
 
-.log {
+.adminlog {
   color: #111;
 }
 
-.form {
+.adminform {
   text-align: center;
 }
 
-.image {
+.adminimage {
   background-image: url(genki.jpg)
+}
+
+.admintop {
+  color: #DDDDDD;
+  text-align: center;
+  padding-top: 20px;
+  
+}
 
 // 注文確認画面
 .paymentmethod {
@@ -284,7 +292,7 @@ dl {
 }
 .orderconfirmation {
     margin: 60px 0 90px 0;
-
+}
  // 注文情報入力
 .address-select, .pay-select{
     height: 50px;
@@ -292,7 +300,7 @@ dl {
     background-color: #dddddd;
     border-bottom: 1px solid #ffffff;
     padding: 5px 0 8px 5px;
-   
+
 }
 
 .address-list, .pay-list {
