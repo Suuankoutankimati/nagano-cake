@@ -217,13 +217,29 @@ a:link, a:visited, a:hover, a:active {
     margin: 30px 0;
 }
 
-.table {
-  margin: 20px auto;
+.abouttable {
+    margin: 20px auto;
 }
 
 .justify-content-center {
-  margin: 30px 0;
+    margin: 30px 0;
 
+}
+
+// 注文一覧
+.show-button {
+    background-color: #224b37;
+    color: #fff;
+    border-style: none;
+    padding: 10px;
+    border-radius: 2px;
+    width: 200px;
+}
+
+// 注文履歴詳細
+.ordertitle {
+    border-bottom: solid 1px #cccccc;
+    margin-bottom: 70px;
 }
 
 // オーダーフロウ
