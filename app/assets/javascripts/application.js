@@ -19,7 +19,8 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).on( "turbolinks:load", function () {
+
+$(document).on('turbolinks:load', function () {
   $("#theTarget").skippr({
     // スライドショーの変化 ("fade" or "slide")
     // fade:フワッと切り替わる slide:横にスライド
