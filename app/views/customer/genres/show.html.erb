@@ -2,10 +2,14 @@
   <div class="row">
     <%= render "layouts/sidebar", genres: @genres %>
       <div class="mainContents col-sm-9 col-sm-push-3 col-md-9 col-md-push-3">
-        <h2 class="sub_title">Item</h2>
-          <span>全<%= @items.count %>件</span>
+        <h2 class="subtitle">Item</h2>
+        <span>全<%= @genre.items.count %>件</span>
+          <div class="container item-category">
+              <h6>”<%= @genre.name %>”の検索結果</h6>
+          </div>
+          
             <div class="row">
-              <% @items.each do |item| %>
+              <% @genre_items.each do |item| %>
                 <div class="col-md-4">
                   <%= link_to item_path(item) do %>
                     <%= attachment_image_tag item, :image, size:'250x200' %>
@@ -16,8 +20,9 @@
               <% end %>
             </div>
             <div class="paginate text-right">
-              <%= paginate @items %>
+              <%= paginate @genre_items %>
             </div>
+        
       </div>
     </div>
   </div>

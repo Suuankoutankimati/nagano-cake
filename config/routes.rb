@@ -38,8 +38,7 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :addresses,only: [:index,:edit,:create,:update,:destroy] do
-    end
+    resources :addresses,only: [:index,:edit,:create,:update,:destroy] 
 
     resources :cart_items,only:[:index,:update,:create,:destroy] do
       collection do
@@ -47,7 +46,15 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :items,only: [:index,:show]
+    resources :items,only: [:index,:show] do
+      collection do
+        get "search"
+      end
+    end
+    
+    resources :genres, only: [:show]
+    
+  
   end
 
 end

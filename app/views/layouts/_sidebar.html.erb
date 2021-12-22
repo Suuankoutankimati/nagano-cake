@@ -5,27 +5,31 @@
       <span class="pMemo">＊表示の送料は、全国一律送料です＊</span>
     </div>
     <div class="searchArea">
-      <input type="text" name="q" placeholder="商品を検索" value="">
-      <button type="submit">search</button>
+      <%= form_with url: search_items_path, method: :get, local: true, class:"search_container" do |f| %>
+        <%= f.text_field :keyword, value: @keyword, placeholder:"キーワード検索" %>
+        <%= f.submit "search"  %>
+      <% end %>
+      <!--<input type="text" name="q" placeholder="商品を検索" value="">-->
+      <!--<button type="submit">search</button>-->
     </div>
     <h2 class="title titleItemcategory">Category</h2>
       <table class="table col-10">
         <tbody>
-          <!--< @genres.each do |genre| %>-->
-          <!--    <tr>-->
-          <!--        <td><= genre.name %></td>-->
-          <!--    </tr>-->
-          <!--< end %>-->
-          <tr><td>ケーキ</td></tr>
-          <tr><td>焼き菓子</td></tr>
-          <tr><td>プリン</td></tr>
-          <tr><td>キャンディ</td></tr>
+          <% genres.each do |genre| %>
+              <tr>
+                  <td>
+                    <%= link_to genre_path(genre), class:"link-text" do %>
+                      <%= genre.name %>
+                    <% end %>
+                  </td>
+              </tr>
+          <% end %>
         </tbody>
       </table>
     <h2 class="title titleItemcategory">Guide</h2>
       <table class="table col-10">
         <tbody>
-          <tr><td>ながのcakeについて</td></tr>
+          <tr><td><%= link_to "ながのcakeについて",about_path, class:"link-text" %></td></tr>
           <tr><td>お問合せ</td></tr>
           <tr><td>プライバシーポリシー</td></tr>
           <tr><td>特定商取引法に基づく表記</td></tr>
