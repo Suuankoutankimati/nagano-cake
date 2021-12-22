@@ -4,11 +4,11 @@
             <div class="row">
                 <%= image_tag 'カート内容確認.jpeg', size:'600x60',class:"order-flow" %>
 	        </div>
-	
+
 	        <h4 class="subtitle mx-auto">カート内容確認</h4>
         	<div class="container contens">
         	    <p>下の内容をご確認のうえ、「ご購入手続き」ボタンを押してください。</p>
-            
+
                 <div class="row">
                     <table class="table">
                         <thead>
@@ -26,7 +26,7 @@
                                 <td>
                                     <%= link_to item_path(cart_item.item_id) do %>
                                         <%= attachment_image_tag cart_item.item, :image, size:'80x80' %>
-                                        
+
                                     <% end %>
                                     <%= cart_item.item.name %>
                                 </td>

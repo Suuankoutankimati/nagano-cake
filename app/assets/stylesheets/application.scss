@@ -140,6 +140,9 @@ h2.item_title {
 label {
     font-weight: bold;
 }
+.purchaseButton {
+    margin-top: 20px;
+}
 
 // サインアップページ
 
@@ -277,14 +280,14 @@ dl {
 
 .image {
   background-image: url(genki.jpg)
-
+}
 // 注文確認画面
 .paymentmethod {
     margin: 40px 0 30px 0;
 }
 .orderconfirmation {
     margin: 60px 0 90px 0;
-
+}
  // 注文情報入力
 .address-select, .pay-select{
     height: 50px;
