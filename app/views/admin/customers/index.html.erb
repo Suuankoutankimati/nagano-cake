@@ -12,7 +12,7 @@
     <thead>
       <tr class="col-lg-3 offset-md-6">
         <th>会員名
-        
+
         <%= image_tag ('bunny1.jpeg'), size: "35x35", alt: "icon" %></th>
         <th>会員ステータス
         <%= image_tag ('bunny2.jpeg'), size: "35x35", alt: "icon" %></th>
@@ -23,7 +23,7 @@
         <tr>
           <th>
             <%= link_to admin_customer_path(customer) do %>
-              <%= customer.first_name %><%= customer.last_name %>
+              <%= customer.last_name %>　<%= customer.first_name %>
             <% end %>
           </th>
           <th>
