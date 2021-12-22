@@ -19,20 +19,20 @@
     activerecord:
       attributes:
         customer:
-          last_name: お名前(姓)
-          first_name: お名前(名)
-          kana_last_name: フリガナ(姓)
-          kana_first_name: フリガナ(名)
-          post_code: 郵便番号
-          address: 住所
-          phone_number: 電話番号
-          email: メールアドレス
-          encrypted_password: パスワード
-          password: パスワード
-          password_confirmation: 確認用パスワード
+          last_name: "お名前(姓)"
+          first_name: "お名前(名)"
+          kana_last_name: "フリガナ(姓)"
+          kana_first_name: "フリガナ(名)"
+          post_code: "郵便番号"
+          address: "住所"
+          phone_number: "電話番号"
+          email: "メールアドレス"
+          encrypted_password: "パスワード"
+          password: "パスワード"
+          password_confirmation: "確認用パスワード"
         address:
-          post_code: 郵便番号
-          address: 住所
+          post_code: "郵便番号"
+          address: "住所"
           
           
         errors:
