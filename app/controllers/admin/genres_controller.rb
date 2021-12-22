@@ -1,5 +1,6 @@
 class Admin::GenresController < ApplicationController
   layout 'admin.html.erb'
+  before_action :authenticate_admin!
   # before_action :if_not_admin
   def index
     @genres = Genre.page(params[:page]).reverse_order

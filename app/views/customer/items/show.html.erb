@@ -5,7 +5,7 @@
 				<h2 class="subtitle">Item</h2>
 					<h3 class="item__name"><%= @items.name %></h3>
 						<div class="item__mainImage">
-							<%= attachment_image_tag @items, :image, size:'600x550' %>
+							<!--<= attachment_image_tag @items, :image, size:'600x550' %>-->
 						</div>
 						<div class="row">
 							<div class="col-sm-7 col-md-7 itemText">
@@ -24,7 +24,7 @@
 										</div>
 									<% end %>
 								<% else %>
-									<%= link_to ' ログイン', new_customer_session_path ,class: "btn btn-success" %>
+									<%= link_to "カートに入れる", new_customer_session_path ,class: "form-button" %>
 								<% end %>
 							</div>
 						</div>

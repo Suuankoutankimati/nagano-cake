@@ -1,5 +1,6 @@
 class Admin::OrdersController < ApplicationController
   layout 'admin.html.erb'
+  before_action :authenticate_admin!
   # before_action :if_not_admin
   def index
     @count = Order.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).count
@@ -24,7 +25,7 @@ class Admin::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @ordered = OrderDetail.where(id: @order.id)
+    @ordered = @order.order_details
   end
 
   def update

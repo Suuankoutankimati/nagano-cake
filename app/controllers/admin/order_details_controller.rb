@@ -1,5 +1,6 @@
 class Admin::OrderDetailsController < ApplicationController
   # before_action :if_not_admin
+  before_action :authenticate_admin!
   def update
 
     @ordered = OrderDetail.find(params[:id])

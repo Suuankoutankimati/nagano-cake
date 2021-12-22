@@ -20,6 +20,19 @@ Item.create!(:genre_id => 2,:name =>" シェフ大好き長野プリン ",:non_t
 Item.create!(:genre_id => 3,:name =>" シェフも食べたことある鳩サブレ ",:non_tax_price => 200 ,:introduction =>" 千葉県から直送の鳩サブレです。 ", :image => File.open('./app/assets/images/no_image.jpg'), :is_active => true)
 Item.create!(:genre_id => 4,:name =>" キャンディ ",:non_tax_price => 20 ,:introduction =>" nil ", :image => File.open('./app/assets/images/no_image.jpg'), :is_active => false)
 
+require "csv"
+
+CSV.foreach('db/item_date.csv', headers: true) do |row|
+  Item.create(
+    genre_id: row['genre_id'],
+    name: row['name'],
+    non_tax_price: row['non_tax_price'],
+    image_id: row['image_id'],
+    is_active: row["is_active"],
+    introduction: row["introduction"]
+  )
+end
+
 # admin
 
 Admin.create!(:email => 'suuankou@yahoo.co.jp', :password => 'aaaaaa')
