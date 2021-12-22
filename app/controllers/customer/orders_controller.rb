@@ -1,4 +1,7 @@
 class Customer::OrdersController < ApplicationController
+  # sort機能のヘルパーメソッド
+  # ソートキーと順序の方向（asc/desc）
+  helper_method :sort_column, :sort_direction
 
   def new
     @order = Order.new
@@ -57,7 +60,17 @@ class Customer::OrdersController < ApplicationController
   end
 
   def index
-    @orders = current_customer.orders
+    @orders = current_customer.orders.order("#{sort_column} #{sort_direction}")
+  end
+
+  # 順序の方向(asc(昇順)/desc(降順))の選択
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : 'desc'
+  end
+  
+  # ソートキー(データをソートする時の順序の基準)
+  def sort_column
+    Order.column_names.include?(params[:sort]) ? params[:sort] : 'created_at'
   end
 
   def show
