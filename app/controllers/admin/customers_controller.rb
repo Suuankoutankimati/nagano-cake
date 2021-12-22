@@ -1,6 +1,5 @@
 class Admin::CustomersController < ApplicationController
   layout 'admin.html.erb'
-  before_action :authenticate_admin!
   # before_action :if_not_admin
    def index
     @customers = Customer.all
