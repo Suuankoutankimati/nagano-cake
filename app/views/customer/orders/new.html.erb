@@ -14,7 +14,7 @@
           <%= render  "customer/shared/error_messages", resource: @order %>
           <div class="address-list">
             <div class="address-select">
-              <%= f.radio_button :address_number, 1 %>
+              <%= f.radio_button :address_number, 1, required: true%>
               <%= f.label :address_number_1, "注文者の住所" %>
             </div>
 
@@ -33,7 +33,7 @@
           </div>
           <div class="address-list">
             <div class="address-select">
-              <%= f.radio_button :address_number, 2 %>
+              <%= f.radio_button :address_number, 2 ,required: true%>
               <%= f.label :address_number_2, "登録済住所から選択" %>
             </div>
              &emsp; <%= f.select :address_id, options_from_collection_for_select(@addresses.all, :id, :full_address), class:"address-select-button" %>
@@ -42,7 +42,7 @@
          <!--バリデーションがかけれない-->
            <div class="address-list">
               <div class="address-select">
-                <%= f.radio_button :address_number, 3 %>
+                <%= f.radio_button :address_number, 3 ,required: true%>
                 <%= f.label :address_number_3, "新しいお届け先" %>
               </div>
               <table>
@@ -65,11 +65,11 @@
             <h6 class="subtitle mx-auto">お支払い方法</h6>
             <div class="pay-list">
               <div class="pay-select">
-                <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
+                <%= f.radio_button :payment_method, Order.payment_methods.key(0) ,required: true%>
                 <%= f.label :payment_method, Order.payment_methods_i18n[:credit_card] %>
               </div>
               <div class="pay-select">
-                <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
+                <%= f.radio_button :payment_method, Order.payment_methods.key(1) ,required: true%>
                 <%= f.label :payment_method, Order.payment_methods_i18n[:transfer]%>
               </div>
             </div>
