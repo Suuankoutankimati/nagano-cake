@@ -286,7 +286,7 @@ dl {
   color: #DDDDDD;
   text-align: center;
   padding-top: 20px;
-  
+
 }
 
 // 注文確認画面
@@ -318,4 +318,27 @@ select {
   border-radius: 2px;
   height: 40px;
   width: 80%;
+}
+
+// 注文完了画面
+.thankstext {
+    margin-top: 60px;
+}
+
+.topbutton {
+    margin-top: 30px;
+    margin-bottom: 100px;
+}
+
+.image1 {
+  background-image: url(top用ケーキ.jpg);
+}
+.image2 {
+  background-image: url(アフタヌーンティー.jpg);
+}
+.image3 {
+  background-image: url(about用ケーキ.jpg);
+}
+#theTarget {
+  height: 500px;
 }
