@@ -1,29 +1,40 @@
-<h1>商品一覧画面</h1>
-<div><%= link_to("商品登録", new_admin_item_path, class: "btn btn-sm btn-success") %></div>
- <table class="table table-hover table-inverse">
-  <thead>
-    <th>商品名</th>
-    <th>ジャンル</th>
-    <th>税抜価格</th>
-    <th>商品説明文</th>
-    <th>販売ステータス</th>
-  </thead>
-    <tbody>
-      <% @items.each do |item| %>
-        <tr>
-          <th><%= link_to item.name, admin_item_path(item) %></th>
-          <th><%= item.genre.name %></th>
-          <th><%= item.non_tax_price %>　円</th>
-          <th><%= item.introduction %></th>
-          <th><% if item.is_active == true %>
-					販売中
-					<% elsif item.is_active == false %>
-					売切れ
-					<% end %>
-				<% end %>
-				</th>
-        </tr>
-    </tbody>
-  </table>
- <%= paginate @items %>
- </div>
+
+
+ <div class="container mt-5">
+  <div class="row">
+    <div class="col-10 mx-auto">
+      <table class="table table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">商品名</th>
+            <th scope="col">ジャンル名</th>
+            <th scope="col">税抜き価格</th>
+            <th scope="col">商品説明</th>
+            <th scope="col">販売ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @items.each do |item| %>
+            <tr>
+              <td><%= link_to item.name, admin_item_path(item) %></td>
+              <td><%= link_to item.name, admin_item_path(item) %></td>
+              <td><%= item.non_tax_price %>　円</td>
+              <td><%= item.introduction %></td>
+              <td>
+                <% if item.is_active == true %>
+      					　販売中
+      					<% elsif item.is_active == false %>
+      					　売切れ
+      					<% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= paginate @items %>
+    </div>
+  </div>
+      <fieldset id="resubmit">
+        <%= link_to("商品登録", new_admin_item_path, class: "btn btn-autoline-success") %>
+      </fieldset>
+</div>
