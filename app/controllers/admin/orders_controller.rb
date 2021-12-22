@@ -1,5 +1,6 @@
 class Admin::OrdersController < ApplicationController
-
+  layout 'admin.html.erb'
+  # before_action :if_not_admin
   def index
     @count = Order.where(created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day).count
 
@@ -17,6 +18,8 @@ class Admin::OrdersController < ApplicationController
     # end
 
     @orders = Order.page(params[:page]).reverse_order
+    @ordered = OrderDetail.where(params[:id])
+    #binding.pry
   end
 
   def show
@@ -37,12 +40,16 @@ class Admin::OrdersController < ApplicationController
     redirect_to admin_order_path(@order)
   end
 
-  
+
 
   private
 
   def order_params
     params.require(:order).permit(:status)
   end
-
+  
+  
+  # def if_not_admin
+  #   redirect_to new_admin_session_path unless admin_signed_in?
+  # end
 end

@@ -20,8 +20,7 @@
 
             <td><%= order.customer.first_name %><%= order.customer.last_name %></td>
 
-                 <td><%= order.まっぴー %></td>
-
+            <td><%= order.order_details.sum(:amount) %></td>
 
             <td><%= order.status_i18n %></td>
 
