@@ -1,7 +1,24 @@
-<div class="container">
+<div class="container my-5">
   <div class="row">
-    <div class="col-xs-10 p-6">
-    <h3>会員詳細画面</h3>
+    <div class="col-md-mx offset-md-5">
+    <h2>会員詳細画面</h2>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row mt-3">
+    <div class="col-md-6 offset-md-2">
+    <h3><strong>商品一覧画面</strong></h3>
+    </div>
+    <div class="orderupdatebtn">
+    <%= link_to "   編   集   ", edit_admin_customer_path(@order.customer),class: "btn btn-outline-info" %>
+    </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row mt-3">
+    <div class="col-md-mx offset-md-2">
     <table class="table table-noborder">
       <tbody>
         <tr>
@@ -9,11 +26,10 @@
           <td>
             <%= @order.customer.id %>
             <!--%= @customer.is_deleted ?  %-->
-
             <% if @order.customer.is_deleted? %>
-              <span class="btn btn-info">退会済み</span>
+              <span><strong>　退会済み</strong></span>
             <% else %>
-              <span class="btn btn-info">  会員</span>
+              <span>　　会員</span>
             <% end %>
           </td>
         </tr>
@@ -38,6 +54,12 @@
           <th>支払い方法</th>
           <td><%= @order.payment_method_i18n %></td>
         </tr>
+        <tr>
+          <th>注文ステータス</th>
+          <td><%= form_with model:@order, url:admin_order_path(@order), local: true do |f| %>
+              <%= f.select :status, Order.statuses_i18n.keys.map { |genki| [Order.statuses_i18n[genki], genki]} %>
+              <%= f.submit "更新" , class: "btn btn-outline-success" %>
+              <% end %></td>
         <!--<tr>-->
         <!--  <th>郵便番号</th>-->
         <!--  <td><%#= @order.customer.post_code %></td>-->
@@ -55,10 +77,12 @@
         <!--  <td><%#= @order.customer.email %></td>-->
         <!--</tr>-->
         <!--<tr>-->
-          <td>
-            <a><%= link_to "編集", edit_admin_customer_path(@order.customer),class: "btn btn-info" %></a>
-          </td>
-          <h1>商品一覧画面</h1>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-mx offset-md-6">
             <table class="table table-hover table-inverse">
               <thead>
                 <th>商品名</th>
@@ -68,6 +92,7 @@
                 <th>送料</th>
                 <th>請求額</th>
                 <th>製作ステータス</th>
+                <th></th>
               </thead>
               <tbody>
                 <% @ordered.each do |order_detail| %>
@@ -76,31 +101,30 @@
                   <th><%= order_detail.price %> 円</th>
                   <th><%= order_detail.amount %></th>
                   <th><%= order_detail.price * order_detail.amount %></th>
-                  <th>800</th>
-                  <th><%= order_detail.price * order_detail.amount + 800 %></th>
-                  <th><%= order_detail.making_status_i18n %>
-
-                  </th>
+                  <th><%= order_detail.shipping_cost %></th>
+                  <th><%= order_detail.price * order_detail.amount + order_detail.shipping_cost %></th>
+                  <th><%= order_detail.making_status_i18n %></th>
                   <th>
                     <%= form_with model:order_detail, url:admin_order_detail_path(order_detail), method: :patch, local: true do |f| %>
-                     <%= f.select :making_status, OrderDetail.making_statuses_i18n.keys.map { |genki| [OrderDetail.making_statuses_i18n[genki], genki]}, class: "production_status-select" %></td>
-                     <%= f.submit "更新", class: "btn btn-outline-success" %></td>
-                    <% end %>
-          				<% end %>
+                      <%= f.select :making_status, OrderDetail.making_statuses_i18n.keys.map { |genki| [OrderDetail.making_statuses_i18n[genki], genki]}, class: "production_status-select " %></td>
+                      <th class="orderupdatebtn">
+                      <%= f.submit "更新", class: "btn btn-outline-success" %>
+                      </th>
+                      <% end %>
+          				  <% end %>
                   </th>
-              </tr>
+                  </tr>
 
+                  </br>
+                  </br>
 
+                  </tbody>
+            </table>
+          </div>
+        </div>
+      </br>
+      </br>
+      </br>
 
-               <tr>
-                  <%= form_with model:@order, url:admin_order_path(@order), local: true do |f| %>
-                    <%= f.select :status, Order.statuses_i18n.keys.map { |genki| [Order.statuses_i18n[genki], genki]} %>
-                    <%= f.submit "更新" , class: "btn btn-outline-success" %>
-                   <% end %>
-               </tr>
-
-
-
-                </tbody>
-              </table>
+    </div>
 
