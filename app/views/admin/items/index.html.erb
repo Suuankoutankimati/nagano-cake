@@ -17,7 +17,7 @@
           <% @items.each do |item| %>
             <tr>
               <td><%= link_to item.name, admin_item_path(item) %></td>
-              <td><%= link_to item.name, admin_item_path(item) %></td>
+             
               <td><%= item.non_tax_price %>　円</td>
               <td><%= item.introduction %></td>
               <td>
@@ -35,6 +35,6 @@
     </div>
   </div>
       <fieldset id="resubmit">
-        <%= link_to("商品登録", new_admin_item_path, class: "btn btn-autoline-success") %>
+        <%= link_to("商品登録", new_admin_item_path, class: "btn btn-success") %>
       </fieldset>
 </div>

@@ -8,7 +8,8 @@
               <% @items.each do |item| %>
                 <div class="col-md-4">
                   <%= link_to item_path(item) do %>
-                    <%= attachment_image_tag item, :image, size:'250x200' %>
+                  
+                    <%= image_tag ('bunny1.jpeg'), size: "35x35", alt: "icon" %></th>
                   <% end %>
                     <br /><%= item.name %>
                     <br />¥<%= item.non_tax_price %>

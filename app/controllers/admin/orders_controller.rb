@@ -25,7 +25,7 @@ class Admin::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @ordered = OrderDetail.where(id: @order.id)
+    @ordered = @order.order_details
   end
 
   def update
