@@ -41,8 +41,20 @@ body {
   margin: 0 auto;
 }
 
+.link-text {
+  color: #000000;
+}
 
-
+// トップページの戻る
+#top-back {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
+.arrow{
+  width:      50px;
+  height:     50px;
+}
 
 // ヘッダーレイアウト
 .navbar {
@@ -107,14 +119,36 @@ footer  {
     line-height: 33px;
 }
 
-.leftSide .searchArea button {
-    background-color: #224b37;
-    color: #fff;
-    border-style: none;
-    padding-left: 8px;
-    padding-right: 8px;
-    border-radius: 2px;
+.search_container{
+  box-sizing: border-box;
+  position: relative;
+  border: 1px solid #999;
+  display: block;
+  padding: 3px 10px;
+  border-radius: 5px;
+  height: 40px;
+  width: 100%;
 }
+.search_container input[type="text"]{
+  border: none;
+  position: relative;
+  height: 2.0em;
+}
+.search_container input[type="text"]:focus {
+  outline: 0;
+}
+.search_container input[type="submit"]{
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background: #224b37;
+  color: #fff;
+  outline : none;
+  width: 25%;
+  height: 30px;
+  float: right;
+}
+
 
 // トップページ適用
 .newstable {
@@ -162,12 +196,22 @@ label {
 // メインコンテンツフォーム
 
 .form-contents {
-  padding : 0 15% 10%;
+  padding : 0 10% 10%;
 }
 
 // サイドばーなしメインコンテンツ
 .contents {
-  padding : 0 20% 10%;
+  padding : 0 20% 5%;
+}
+
+.item-category {
+  margin: 10px 0;
+  font-weight: 700;
+  font-size: 18px;
+  text-align: center;
+  padding: 8px;
+  border-bottom: solid 1px #ccc;
+
 }
 
 

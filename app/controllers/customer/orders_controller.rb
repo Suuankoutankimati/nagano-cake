@@ -1,5 +1,6 @@
 class Customer::OrdersController < ApplicationController
-
+  before_action :authenticate_customer!
+  
   def new
     @order = Order.new
     @addresses = current_customer.addresses.all
@@ -58,12 +59,14 @@ class Customer::OrdersController < ApplicationController
 
   def index
     @orders = current_customer.orders
+    @genres = Genre.all
   end
 
   def show
     @order = Order.find(params[:id])
     @order_details = @order.order_details
     @total = @order_details.inject(0) { |sum, item| sum + item.subtotal }
+    @genres = Genre.all
   end
 
   private

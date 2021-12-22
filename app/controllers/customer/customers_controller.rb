@@ -1,10 +1,13 @@
 class Customer::CustomersController < ApplicationController
+  before_action :authenticate_customer!
   def show
     @customer = Customer.find(params[:id])
+    @genres = Genre.all
   end
 
   def edit
     @customer = Customer.find(params[:id])
+    @genres = Genre.all
   end
   
   def update
