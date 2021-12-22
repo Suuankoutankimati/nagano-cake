@@ -41,6 +41,9 @@ body {
   margin: 0 auto;
 }
 
+
+
+
 // ヘッダーレイアウト
 .navbar {
   margin-bottom: 40px;
@@ -206,10 +209,7 @@ label {
     color: #fff;
 }
 
-// 全てのリンクの色を変更しない
-a:link, a:visited, a:hover, a:active {
-  color: #fff;
-}
+
 
 
 // アバウトページ
@@ -280,13 +280,13 @@ dl {
 }
 
 
+
 .admintop {
   color: #DDDDDD;
   text-align: center;
   padding-top: 20px;
   
 }
-
 
 
 // 注文確認画面
@@ -296,8 +296,6 @@ dl {
 .orderconfirmation {
     margin: 60px 0 90px 0;
 }
-
-
 
 
  // 注文情報入力
@@ -321,6 +319,4 @@ select {
   border-radius: 2px;
   height: 40px;
   width: 80%;
-
-
 }
