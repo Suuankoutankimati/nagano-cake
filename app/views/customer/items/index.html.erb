@@ -2,8 +2,8 @@
   <div class="row">
     <%= render "layouts/sidebar", genres: @genres %>
       <div class="mainContents col-sm-9 col-sm-push-3 col-md-9 col-md-push-3">
-        <h2 class="sub_title">Item</h2>
-          <span>全<%= @items.count %>件</span>
+        <h2 class="subtitle">Item</h2>
+          <span>全<%= @items_all.count %>件</span>
             <div class="row">
               <% @items.each do |item| %>
                 <div class="col-md-4">
@@ -11,7 +11,7 @@
                     <%= attachment_image_tag item, :image, size:'250x200' %>
                   <% end %>
                     <br /><%= item.name %>
-                    <br />¥<%= item.non_tax_price %>
+                    <br />¥<%= item.non_tax_price.to_s(:delimited) %>
                 </div>
               <% end %>
             </div>

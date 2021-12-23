@@ -13,7 +13,7 @@
 								<%= @items.introduction %>
 							</div>
 							<div class="col-sm-3 col-md-3 itemInfo">
-								<span class="item__price">¥<%= @items.with_tax_price.to_s(:dalimited) %>(税込)</span>
+								<span class="item__price">¥<%= @items.with_tax_price.to_s(:delimited) %>(税込)</span>
 								<% if customer_signed_in? %>
 									<%= form_with model: @cart_item, url: cart_items_path, local: true do |f| %>
 										<%= f.hidden_field :customer_id, :value => current_customer.id %>
