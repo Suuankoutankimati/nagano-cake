@@ -31,10 +31,13 @@ Rails.application.routes.draw do
     root "homes#top"
     get "about" => "homes#about"
 
-    resources :customers,only: [:show,:edit,:update] do
+    # get "customer/mypage" => "customers#show"
+    resource :customers,only: [:show] do
       collection do
         get "unsubscribe"
         patch "withdraw"
+        get "mypage/edit" => "customers#edit"
+        patch "mypage/update" => "customers#update"
       end
     end
 
@@ -54,12 +57,5 @@ Rails.application.routes.draw do
 
     resources :genres, only: [:show]
 
-    resources :contacts, only:[:new,:create] do
-      collection do
-        post "confirm"
-        post "back"
-        get "done"
-      end
-    end
   end
 end

@@ -19,6 +19,7 @@ class Customer::AddressesController < ApplicationController
 
   def edit
     @address = Address.find(params[:id])
+    @genres = Genre.all
   end
   
   def update

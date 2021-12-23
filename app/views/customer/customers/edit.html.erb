@@ -3,10 +3,10 @@
     <%= render "layouts/sidebar", genres: @genres %>
     <div class="mainContents col-sm-9 col-sm-push-3 col-md-9 col-md-push-3">
     
-      <h1 class="subtitle">MyPage Edit</h1>
+      <h2 class="subtitle">MyPage Edit</h2>
       
       <div class="container form-contents">
-       <%= form_with model: @customer, url: customer_path, local: true do |f| %>
+       <%= form_with model: @customer, url: mypage_update_customers_path, local: true do |f| %>
          <%= render  "customer/shared/error_messages", resource: @customer %>
       
           <div class="field form-group row">
