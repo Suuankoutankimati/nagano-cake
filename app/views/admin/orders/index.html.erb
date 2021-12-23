@@ -1,41 +1,74 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 offset-md-3">
-      <h1>注文一覧画面</h1>
-      <h2>本日の注文数  <%= @count %>件</h2>
-      <table class="table">
-        <thead>
-          <tr class="active">
-            <th>購入日時</th>
-            <th>購入者</th>
-            <th>注文個数</th>
-            <th>注文ステータス</th>
-          </tr>
-        </thead>
 
-        <tbody>
-          <% @orders.each do |order| %>
-          <tr>
-            <td><%= link_to order.created_at.strftime("%Y年%m月%d日%H時%M分%S秒 "), admin_order_path(order.id), class:"link-text" %></td>
+<div class="main">
+ <h2>注文一覧画面</h2>
+ <div class="footer">
+ <h>本日の注文数  <%= @count %>件</h5>
+ </div>
+ </div>
+<!--<div class="container mt-5">-->
+<!--  <div class="row">-->
+<!--    <div class="col-9 mx-auto">-->
+<!--      <div class="card"style="width: 50rem;">-->
+<!--        <div class="card-body">-->
+<!--      <table class="table">-->
+<!--        <thead>-->
+<!--          <tr class="active">-->
+<!--            <th> <p class="card-text">購入日時</p></th>-->
+<!--            <th><p class="card-text">購入者</p></th>-->
+<!--            <th><p class="card-text">注文個数</p></th>-->
+<!--            <th> <p class="card-text">注文ステータス</p></th>-->
+<!--          </tr>-->
+<!--        </thead>-->
 
-            <td><%= order.customer.first_name %><%= order.customer.last_name %></td>
 
-            <td><%= order.order_details.sum(:amount) %></td>
-
-            <td><%= order.status_i18n %></td>
-
-          </tr>
+<!--        <tbody>-->
+          <%# @orders.each do |order| %>
+<!--          <tr>-->
+<!--                <td><%#= link_to order.created_at.strftime("%Y年%m月%d日%H時%M分%S秒 "), admin_order_path(order.id) %></td>-->
+<!--                <td><%#= order.customer.last_name %>　<%#= order.customer.first_name %></td>-->
+<!--                <td><%#= order.order_details.sum(:amount) %></td>-->
+<!--                <td><%#= order.status_i18n %></td>-->
+<!--          </tr>-->
           <%# end %>
-        </tbody>
-        <% end %>
-
-      </table>
-    </div>
-  </div>
+<!--        </tbody>-->
+<!--        <#% end %>-->
+<!--      </table>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
   <!--雷-->
   <!--<#%= paginate @orders, class: "paginate" %>-->
-  <%= paginate @orders %>
-  </br>
-  </br>
-  </br>
+  <%#= paginate @orders %>
+<!--  </br>-->
+<!--  </br>-->
+<!--  </br>-->
+<!--</div>-->
+<!--</div>-->
+
+<% @orders.each do |order| %>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-9 mx-auto">
+      <div class="card"style="width: 50rem;">
+        <div class="card-body">
+          <p class="card-text">購入日時</p>
+            <p class="card-text"><%= link_to order.created_at.strftime("%Y年%m月%d日%H時%M分%S秒 "), admin_order_path(order.id) %></p>
+            <p class="card-text">購入者</p>
+            <p class="card-text"><small><%= order.customer.last_name %>　<%= order.customer.first_name %></small></p>
+            <p class="card-text">注文個数</p>
+            <p class="card-text"><small><%= order.order_details.sum(:amount) %></small></p>
+            <p class="card-text">注文ステータス</p>
+            <p class="card-text"><small><%= order.status_i18n %></small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+<%end%>
+   <div class="col-1 mx-auto">
+     <%= paginate @orders %>
+   </div>
+   </br>
+
+

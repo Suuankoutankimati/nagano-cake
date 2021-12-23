@@ -5,7 +5,7 @@ class Admin::CustomersController < ApplicationController
     @customers = Customer.all
    end
   # 論理削除されたデータも「含める」
-  # Model.with_deleted
+  # Mode名l.with_deleted
 
   def show
     @customer = Customer.find(params[:id])

@@ -4,50 +4,59 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">商品編集</h5>
-          <p class="card-text"></p>
+           <%= form_with(model: @item, url: admin_item_path, local: true, method: :patch) do |f| %>
+             <div class="form-group">
+               <div class="card-text">
+                <%= f.label :商品名 %>
+                </div>
+                <%= f.text_field :name, class: "form-control name" %>
+                </div>
+    
+               <div class="form-group">
+                 <div class="card-text">
+                <%= f.label :商品説明 %>
+                 </div>
+                <%= f.text_area :introduction, class: "form-control introduction" %>
+               </div>
+    
+               <div class="form-group">
+                <div class="card-text">
+                <%= f.label :ジャンル %>
+                </div>
+                <%= f.collection_select :genre_id, Genre.all, :id, :name, class: "form-control genre" %>
+               </div>
+    
+               <div class="form-group">
+                <div class="card-text">
+                <%= f.label :税抜き価格 %>
+                </div>
+                <%= f.text_field :non_tax_price, class: "form-control non_tax_price" %>
+                <span class="mt-auto ml-3">円</span>
+               </div>
+    
+               <div class="form-group">
+                 <div class="card-text">
+                <%= f.label :販売ステータス %>
+                 </div>
+                <%= f.radio_button :is_active, true %>
+                <%= f.label :is_active, "販売中", value: :true %>
+                <%= f.radio_button :is_active, false %>
+                <%= f.label :is_active, "売切れ", value: :false %>
+               </div>
+               <div class="form-group">
+                 <div class="card-text">
+                <%= f.label :商品画像 %>
+                 </div>
+                <%= f.attachment_field :image %>
+               </div>
+         </div>
 
-
-    <%= form_for(@item, url: admin_item_path) do |f| %>
-        <div class="form-group">
-            <%= f.label :商品画像 %>
-            <%= f.attachment_field :image %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :商品名 %>
-          <%= f.text_field :name, class: "form-control name" %>
-        </div>
-
-        <div class="form-group">
-            <%= f.label :商品説明 %>
-            <%= f.text_area :introduction, class: "form-control introduction" %>
-        </div>
-
-        <div class="form-group">
-            <%= f.label :ジャンル %>
-            <%= f.collection_select :genre_id, Genre.all, :id, :name, class: "form-control genre" %>
-        </div>
-
-        <div class="form-group">
-            <%= f.label :税抜き価格 %>
-            <%= f.text_field :non_tax_price, class: "form-control non_tax_price" %>
-            <span class="mt-auto ml-3">円</span>
-        </div>
-
-        <div class="form-group">
-            <%= f.label :販売ステータス %>
-            <%= f.radio_button :is_active, true %>
-            <%= f.label :is_active, "販売中", value: :true %>
-            <%= f.radio_button :is_active, false %>
-            <%= f.label :is_active, "売切れ", value: :false %>
-        </div>
-      </div>
-
-       <div class="form-group">
-        <%= f.submit :編集する, class: "btn btn-primary" %>
-      </div>
       </div>
     </div>
     </div>
+    </br>
+       <div class="col-1 mx-auto">
+        <%= f.submit :更新, class: "btn btn-light" %>
+      </div>
   <% end %>
 </div>

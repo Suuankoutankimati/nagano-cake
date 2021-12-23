@@ -6,7 +6,7 @@ class Admin::OrderDetailsController < ApplicationController
     @ordered = OrderDetail.find(params[:id])
     @order = @ordered.order
     @ordered.update(order_detail_params)
-    #binding.pry
+    #注文ステータス販売ステータスの連動  enum（１→２）
     if @ordered.making_status == "production"
       @order.update(status: "production")
     elsif @ordered.making_status == "completion"
