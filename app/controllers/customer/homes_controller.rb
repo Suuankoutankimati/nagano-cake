@@ -4,5 +4,6 @@ class Customer::HomesController < ApplicationController
   end
 
   def about
+    @atsushi = current_customer.address
   end
 end
