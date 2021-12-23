@@ -11,4 +11,10 @@ class Item < ApplicationRecord
     def with_tax_price
         (non_tax_price * 1.1).floor
     end
+    
+    # 検索機能で商品名と紹介文のどちらか一方でも部分一致したら出力するメソッド
+    def self.search(keyword)
+        where(["name like? OR introduction like?", "%#{keyword}%", "%#{keyword}%"])
+        
+    end
 end

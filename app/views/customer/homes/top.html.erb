@@ -1,8 +1,13 @@
 <div class="container">
   <div class="row">
-    <%= render "layouts/sidebar" %>
+    <%= render "layouts/sidebar", genres: @genres %>
       <div class="mainContents col-sm-9 col-sm-push-3 col-md-9 col-md-push-3">
-        <%= image_tag 'top用ケーキ.jpg', size:'750x500' %>
+        <!--スライドショー適用-->
+        <div id="theTarget">
+          <div class="image1"></div>
+          <div class="image2"></div>
+          <div class="image3"></div>
+        </div>
         <p>ようこそ、ながのCAKEへ！</br>
             このサイトは、ケーキ販売のECサイトになります。</br>
             会員でない方も商品の閲覧はできますが、購入には会員登録が必要になります。
@@ -21,7 +26,7 @@
             <% @items.each do |item| %>
                 <div class="col-md-4">
                     <%= link_to item_path(item) do %>
-                      <%= item.image_id %>
+                      <%= attachment_image_tag item, :image, size:'250x200' %>
                     <% end %>
                   	  <br /><%= item.name %>
                   	  <br />¥<%= item.non_tax_price %>
@@ -29,7 +34,7 @@
             <% end %>
           </div>
           <div class="allItem text-right">
-            <%= link_to "全ての商品を見る>", items_path %>
+            <%= link_to "全ての商品を見る>", items_path, class:"link-text" %>
           </div>
       </div>
     </div>
