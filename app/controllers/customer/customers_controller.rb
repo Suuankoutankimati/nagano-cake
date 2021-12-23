@@ -1,19 +1,20 @@
 class Customer::CustomersController < ApplicationController
   before_action :authenticate_customer!
   def show
-    @customer = Customer.find(params[:id])
+    @customer = current_customer
     @genres = Genre.all
   end
 
   def edit
-    @customer = Customer.find(params[:id])
+    @customer = current_customer
     @genres = Genre.all
   end
   
   def update
-    @customer = Customer.find(params[:id])
+    @genres = Genre.all
+    @customer = current_customer
     if @customer.update(customer_params)
-      redirect_to customer_path(@customer)
+      redirect_to customers_path(@customer)
     else
       render "edit"
     end

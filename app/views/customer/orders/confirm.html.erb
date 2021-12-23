@@ -25,7 +25,7 @@
                     <tr>
                       <td><%= link_to item_path(cart.item_id) do %>
                       <!---->
-                            <%= image_tag ('bunny1.jpeg'), size: "35x35", alt: "icon" %></th>
+                            <%= attachment_image_tag cart.item, :image, size:'80x80' %></th>
                           <% end %>
                       </td>
                       <td><%= cart.item.name %></td>

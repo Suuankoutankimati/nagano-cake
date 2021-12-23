@@ -3,7 +3,7 @@ class Customer::AddressesController < ApplicationController
   def index
     @addresses = current_customer.addresses.all
     @address = Address.new
-    @gerens = Genre.all
+    @genres = Genre.all
   end
   
   def create
@@ -19,6 +19,7 @@ class Customer::AddressesController < ApplicationController
 
   def edit
     @address = Address.find(params[:id])
+    @genres = Genre.all
   end
   
   def update

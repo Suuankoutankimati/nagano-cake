@@ -21,7 +21,7 @@
                 <div class="collapse navbar-collapse ml-auto" id="navbarNavDropdown">
                     <ul class="navbar-nav  ml-auto">
                         <% if customer_signed_in? %>
-                            <li><%= link_to ' My Page',customer_path(current_customer),class: ' nav-link text-body' %></li>
+                            <li><%= link_to ' My Page',customers_path,class: ' nav-link text-body' %></li>
                             <li><%= link_to ' Item',items_path,class: ' nav-link text-body' %></li>
                             <li><%= link_to ' Cart',cart_items_path ,class: 'nav-link text-body'%></li>
                             <li><%= link_to ' Log Out', destroy_customer_session_path, method: :delete,class: 'nav-link text-body' %></li>
