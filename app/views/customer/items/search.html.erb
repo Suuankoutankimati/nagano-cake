@@ -1,30 +1,29 @@
 <div class="container">
   <div class="row">
     <%= render "layouts/sidebar", genres: @genres %>
-      <div class="mainContents col-sm-9 col-sm-push-3 col-md-9 col-md-push-3">
-        <h2 class="subtitle">Item</h2>
-          <span>全<%= @items.count %>件</span>
-            <div class="row">
-                <% if @items.count == 0 %>
-                    <div class="container form-contents">
-                    <p>一致する商品がございませんでした。</p>
-                    </div>
-                <% else %>
-                <div class="container item-category">
-                    <h6>”<%= @keyword %>”の検索結果</h6>
-                </div>
-              <% @items.each do |item| %>
-                <div class="col-md-4">
-                  <%= link_to item_path(item) do %>
-                    <%= attachment_image_tag item, :image, size:'250x200' %>
-                  <% end %>
-                    <br /><%= item.name %>
-                    <br />¥<%= item.non_tax_price.to_s(:delimited) %>
-                </div>
-              <% end %>
-              <% end %>
+    <div class="mainContents col-sm-9 col-sm-push-3 col-md-9 col-md-push-3">
+      <h2 class="subtitle">Item</h2>
+      <span>全<%= @items.count %>件</span>
+        <div class="row">
+          <% if @items.count == 0 %>
+            <div class="container form-contents">
+            <p>一致する商品がございませんでした。</p>
             </div>
-            
+          <% else %>
+          <div class="container item-category">
+            <h6>”<%= @keyword %>”の検索結果</h6>
+          </div>
+          <% @items.each do |item| %>
+            <div class="col-md-4">
+              <%= link_to item_path(item) do %>
+                <%= attachment_image_tag item, :image, size:'250x200' %>
+              <% end %>
+              <br /><%= item.name %>
+              <br />¥<%= item.non_tax_price.to_s(:delimited) %>
+            </div>
+            <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
