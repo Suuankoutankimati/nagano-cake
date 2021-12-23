@@ -9,7 +9,7 @@ class Customer::CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
     @genres = Genre.all
   end
-  
+
   def update
     @customer = Customer.find(params[:id])
     if @customer.update(customer_params)
@@ -17,12 +17,12 @@ class Customer::CustomersController < ApplicationController
     else
       render "edit"
     end
-      
+
   end
 
   def unsubscribe
   end
-  
+
   def withdraw
     # 現在ログインしている顧客であること
     @customer = Customer.where(id: current_customer.id)
@@ -36,7 +36,7 @@ class Customer::CustomersController < ApplicationController
       render "show"
     end
   end
-  
+
   private
   def customer_params
     params.require(:customer).permit(:last_name, :first_name, :kana_last_name, :kana_first_name, :post_code, :address, :phone_number, :email, :is_deleted)
