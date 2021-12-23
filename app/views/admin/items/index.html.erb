@@ -1,6 +1,6 @@
 
-
- <div class="container mt-5">
+<% @items.each do |item| %>
+<div class="container mt-5">
   <div class="row">
     <div class="col-9 mx-auto">
       <div class="card"style="width: 50rem;">
@@ -16,21 +16,24 @@
           <p class="card-text">販売ステータス</p>
           <p class="card-text"><small>
                  <% if item.is_active == true %>
+
       					　販売中
       					<% elsif item.is_active == false %>
       					　売切れ
       					<% end %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <%= paginate @items %>
+          </small></p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-      <fieldset id="resubmit">
-        <%= link_to("商品登録", new_admin_item_path, class: "btn btn-success") %>
+</div>
+
+<%end%>
+   <div class="col-1 mx-auto">
+     <%= paginate @items %>
+   </div>
+      <fieldset class="col-1 mx-auto">
+        <%= link_to("商品登録", new_admin_item_path, class: "btn btn-light") %>
       </fieldset>
-</div>
-</div>
 

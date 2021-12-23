@@ -2,11 +2,11 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root "orders#index"
-    resources :items
-    resources :genres
+    resources :items,except: :destroy
+    resources :genres,except: [:destroy, :new, :show]
     resources :order_details,only: [:update]
-    resources :orders
-    resources :customers
+    resources :orders,except: [:destroy, :create, :new, :edit]
+    resources :customers,except: [:destroy, :create, :new]
   end
 
   #管理者
@@ -41,7 +41,7 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :addresses,only: [:index,:edit,:create,:update,:destroy] 
+    resources :addresses,only: [:index,:edit,:create,:update,:destroy]
 
     resources :cart_items,only:[:index,:update,:create,:destroy] do
       collection do
@@ -54,15 +54,8 @@ Rails.application.routes.draw do
         get "search"
       end
     end
-    
+
     resources :genres, only: [:show]
-    
-    # resources :contacts, only:[:new,:create] do
-    #   collection do
-    #     post "confirm"
-    #     post "back"
-    #     get "done"
-    #   end
-    # end
+
   end
 end

@@ -24,9 +24,9 @@
                   <tbody>
                     <tr>
                       <td><%= link_to item_path(cart.item_id) do %>
-                      <!---->
                             <%= attachment_image_tag cart.item, :image, size:'80x80' %></th>
                           <% end %>
+
                       </td>
                       <td><%= cart.item.name %></td>
                       <td><%= (cart.item.with_tax_price).to_s(:delimited) %></td>
