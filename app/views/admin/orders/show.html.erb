@@ -1,14 +1,18 @@
-<div class="container mt-5">
+<div class="container">
   <div class="row">
-    <div class="col-6 mx-auto offset-md-2">
+    <div class="col-6 mx-auto ">
       <div class="card">
-        <div class="card-body">
-          <h2 class="card-title">会員詳細画面</h2>
-          <table ="card-table">
+        <div class="card-body ">
+          <h3 class="card-title">会員詳細画面</h3>
+          <table>
             <tbody>
               <tr>
-                <th>顧客ID</th>
-                  <td>
+                <th>会員情報</th>
+                <td><%= link_to "編　集", edit_admin_customer_path(@order.customer),class: "btn btn-light-danger btn-sm" %></td>
+              </tr>
+              <tr>
+                <th class="p-details">顧客ID</th>
+                  <td class="p-details">
                     <%= @order.customer.id %>
                     <!--%= @customer.is_deleted ?  %-->
                     <% if @order.customer.is_deleted? %>
@@ -20,32 +24,38 @@
               </tr>
               <tr>
                 <!--名前をlink_toでその人の会員詳細に移動する-->
-                <th>氏名</th>
-                <td><%= @order.customer.last_name %>　<%= @order.customer.first_name %></td>
+                <th class="p-details">氏名</th>
+                <td class="p-details"><%= @order.customer.last_name %>　<%= @order.customer.first_name %></td>
               </tr>
               <tr>
-                <th>注文日</th>
-                <td><%= @order.created_at.strftime("%Y年%m月%d日 ") %></td>
+                <th class="p-details">注文日</th>
+                <td class="p-details"><%= @order.created_at.strftime("%Y年%m月%d日 ") %></td>
               </tr>
               <tr>
-                <th>フリガナ</th>
-                <td><%= @order.customer.kana_last_name %>　<%= @order.customer.kana_first_name %></td>
+                <th class="p-details">フリガナ</th>
+                <td class="p-details"><%= @order.customer.kana_last_name %>　<%= @order.customer.kana_first_name %></td>
               </tr>
               <tr>
-                <th>配送先</th>
-                <td><%= @order.address %></td>
+                <th class="p-details">配送先</th>
+                <td class="p-details"><%= @order.address %></td>
               </tr>
               <tr>
-                <th>支払い方法</th>
-                <td><%= @order.payment_method_i18n %></td>
+                <th class="p-details">支払い方法</th>
+                <td class="p-details"><%= @order.payment_method_i18n %></td>
               </tr>
               <tr>
-                <th>注文ステータス</th>
-                <td><%= form_with model:@order, url:admin_order_path(@order), local: true do |f| %>
-                    <%= f.select :status, Order.statuses_i18n.keys.map { |genki| [Order.statuses_i18n[genki], genki]} %>
-                    <%= f.submit "更新" , class: "btn btn-light-success" %>
+                <th class="p-details">注文ステータス</th>
+                <td class="p-details"><%= form_with model:@order, url:admin_order_path(@order), local: true do |f| %>
+                    <%= f.select :status, Order.statuses_i18n.keys.map { |genki| [Order.statuses_i18n[genki], genki]} %></td>
+                <td><%= f.submit "更新" , class: "btn btn-light-success btn-sm" %>
                     <% end %></td>
               </tr>
+
+              </table>
+        </div>
+      </div>
+    </div>
+  </div>
               <!--<tr>-->
               <!--  <th>郵便番号</th>-->
               <!--  <td><%#= @order.customer.post_code %></td>-->
@@ -63,16 +73,7 @@
               <!--  <td><%#= @order.customer.email %></td>-->
               <!--</tr>-->
               <!--<tr>-->
-              </table>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-md-10 offset-3">
     </br>
-    <h4><strong>会員情報　　<%= link_to "編　集", edit_admin_customer_path(@order.customer),class: "btn btn-light-danger" %></strong></h4>
-  </div>
 
   <% @ordered.each do |order_detail| %>
   <div class="container mt-5">
