@@ -11,8 +11,6 @@ class Customer::OrdersController < ApplicationController
   end
 
   def confirm
-
-
     #カートアイテムの確認
     @cart_items = current_customer.cart_items.all
     # 合計金額(商品のみ)の算出
@@ -69,7 +67,7 @@ class Customer::OrdersController < ApplicationController
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : 'desc'
   end
-  
+
   # ソートキー(データをソートする時の順序の基準)
   def sort_column
     Order.column_names.include?(params[:sort]) ? params[:sort] : 'created_at'
