@@ -2,26 +2,20 @@
 
  <div class="container mt-5">
   <div class="row">
-    <div class="col-10 mx-auto">
-      <table class="table table-hover">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">商品名</th>
-            <th scope="col">ジャンル名</th>
-            <th scope="col">税抜き価格</th>
-            <th scope="col">商品説明</th>
-            <th scope="col">販売ステータス</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @items.each do |item| %>
-            <tr>
-              <td><%= link_to item.name, admin_item_path(item) %></td>
-             
-              <td><%= item.non_tax_price %>　円</td>
-              <td><%= item.introduction %></td>
-              <td>
-                <% if item.is_active == true %>
+    <div class="col-9 mx-auto">
+      <div class="card"style="width: 50rem;">
+        <div class="card-body">
+          <h5 class="card-title">商品名</h5>
+          <p class="card-text"><%= link_to item.name, admin_item_path(item) %></p>
+          <p class="card-text">ジャンル名</p>
+          <p class="card-text"><small><%= item.genre.name %></small></p>
+          <p class="card-text">税抜価格</p>
+          <p class="card-text"><small><%= item.non_tax_price %>　円</small></p>
+          <p class="card-text">商品説明</p>
+          <p class="card-text"><small><%= item.introduction %></small></p>
+          <p class="card-text">販売ステータス</p>
+          <p class="card-text"><small>
+                 <% if item.is_active == true %>
       					　販売中
       					<% elsif item.is_active == false %>
       					　売切れ

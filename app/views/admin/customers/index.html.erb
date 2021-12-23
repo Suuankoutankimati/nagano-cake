@@ -22,8 +22,9 @@
         <% @customers.each do |customer| %>
         <tr>
           <th>
-            <%= link_to admin_customer_path(customer) do %>
-              <%= customer.last_name %>　<%= customer.first_name %>
+
+            <%= link_to admin_customer_path(customer), class:"link-text" do %>
+              <%= customer.first_name %><%= customer.last_name %>
             <% end %>
           </th>
           <th>

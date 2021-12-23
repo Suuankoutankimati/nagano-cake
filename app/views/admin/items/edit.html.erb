@@ -4,7 +4,7 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">商品編集</h5>
-           <%= form_for(@item, url: admin_item_path) do |f| %>
+           <%= form_with(model: @item, url: admin_item_path, local: true, method: :patch) do |f| %>
              <div class="form-group">
                <div class="card-text">
                 <%= f.label :商品名 %>
