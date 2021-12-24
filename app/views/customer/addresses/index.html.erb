@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="row">
-    <%= render "layouts/sidebar", genres: @genres %>
+    <div class="row">
+        <%= render "layouts/sidebar", genres: @genres %>
 
         <div class="mainContents col-sm-9 col-sm-push-3 col-md-9 col-md-push-3">
             <h1 class="subtitle">My Address</h1>
@@ -59,7 +59,7 @@
                                                 <%= link_to "編集",edit_address_path(address),class:"form-button" %>
                                             </div>
                                             <div class="actions">
-                                                <%= link_to "削除",address_path(address),method: :delete,class:"form-button-alert","data-confirm" => "本当に退会しますか？" %>
+                                                <%= link_to "削除",address_path(address),method: :delete,class:"form-button-alert","data-confirm" => "本当に削除しますか？" %>
                                             </div>
                                         </div>
                                     </td>

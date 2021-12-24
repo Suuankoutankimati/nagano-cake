@@ -41,11 +41,12 @@ body {
   margin: 0 auto;
 }
 
+// リンクフォントを黒に統一
 .link-text {
   color: #000000;
 }
 
-// トップページの戻る
+// トップページの戻るボタン
 #top-back {
   position: fixed;
   right: 20px;
