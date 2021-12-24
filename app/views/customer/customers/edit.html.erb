@@ -6,56 +6,56 @@
       <h2 class="subtitle">MyPage Edit</h2>
       
       <div class="container form-contents">
-       <%= form_with model: @customer, url: mypage_update_customers_path, local: true do |f| %>
-         <%= render  "customer/shared/error_messages", resource: @customer %>
+        <%= form_with model: @customer, url: mypage_update_customers_path, local: true do |f| %>
+          <%= render  "customer/shared/error_messages", resource: @customer %>
       
           <div class="field form-group row">
             <div class="col-md-6 mb-3">
-            <%= f.label :"姓", class:"form-label" %>
-            <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class:"form-control", required: true %>
+              <%= f.label :"姓", class:"form-label" %>
+              <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class:"form-control", required: true %>
             </div>
             <div class="col-md-6 mb-3">
-            <%= f.label :"名", class:"form-label" %>
-            <%= f.text_field :first_name, autoforcus: true, autocomplete: "first_name", class:"form-control", required: true %>
+              <%= f.label :"名", class:"form-label" %>
+              <%= f.text_field :first_name, autoforcus: true, autocomplete: "first_name", class:"form-control", required: true %>
             </div>
           </div>
             
           <div class="field form-group row">
             <div class="col-md-6 mb-3">
-            <%= f.label :"セイ",class:"form-label" %>
-            <%= f.text_field :kana_last_name, autofocus: true, autocomplete: "kana_last_name", class:"form-control", required: true %>
+              <%= f.label :"セイ",class:"form-label" %>
+              <%= f.text_field :kana_last_name, autofocus: true, autocomplete: "kana_last_name", class:"form-control", required: true %>
             </div>
             <div class="col-md-6 mb-3">
-            <%= f.label :"メイ",class:"form-label" %>
-            <%= f.text_field :kana_first_name, autofocus: true, autocomplete: "kana_first_name", class:"form-control", required: true %>
+              <%= f.label :"メイ",class:"form-label" %>
+              <%= f.text_field :kana_first_name, autofocus: true, autocomplete: "kana_first_name", class:"form-control", required: true %>
             </div>
           </div>
           
           <div class="field form-group row">
             <div class="col-md-12 mb-6">
-            <%= f.label :"郵便番号(ハイフンなし)", class:"form-label" %>
-            <%= f.text_field :post_code, autofocus: true, autocomplete: "post_code", class:"form-control", required: true %>
+              <%= f.label :"郵便番号(ハイフンなし)", class:"form-label" %>
+              <%= f.text_field :post_code, autofocus: true, autocomplete: "post_code", class:"form-control", required: true %>
             </div>
           </div>
           
           <div class="field form-group row">
             <div class="col-md-12 mb-6">
-            <%= f.label :"住所", class:"form-label" %>
-            <%= f.text_field :address, autofocus: true, autocomplete: "address", class:"form-control", required: true %>
+              <%= f.label :"住所", class:"form-label" %>
+              <%= f.text_field :address, autofocus: true, autocomplete: "address", class:"form-control", required: true %>
             </div>
           </div>
           
           <div class="field form-group row">
             <div class="col-md-12 mb-6">
-            <%= f.label :"電話番号(ハイフンなし)", class:"form-label" %>
-            <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number", class:"form-control", required: true %>
+              <%= f.label :"電話番号(ハイフンなし)", class:"form-label" %>
+              <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number", class:"form-control", required: true %>
             </div>
           </div>
           
           <div class="field form-group row">
             <div class="col-md-12 mb-6">
-            <%= f.label :"メールアドレス", class:"form-label" %>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", required: true %>
+              <%= f.label :"メールアドレス", class:"form-label" %>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", required: true %>
             </div>
           </div>
         
@@ -64,7 +64,7 @@
               <%= f.submit "編集内容を保存", class:"form-button" %>
             </div>
         <% end %>
-        </div>
+          </div>
       
         <div class="actions">
             <%= link_to "　　　退会する　　　",unsubscribe_customers_path(@customer),class:"form-button-alert" %>
