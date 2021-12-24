@@ -7,8 +7,8 @@
  DMMWEBCAMPのチーム開発で作成したケーキ屋さんのECサイトとなります。</br>
  
  ## 設計
-#### ・[アプリケーション詳細設計・会員側](https://github.com/Suuankoutankimati/nagano-cake/files/7772109/nagano-cake.pdf)</br>
-#### ・[アプリケーション詳細設計・管理者側](https://github.com/Suuankoutankimati/nagano-cake/files/7772114/nagano-cake.pdf)</br>
+#### ・[アプリケーション詳細設計/会員側](https://github.com/Suuankoutankimati/nagano-cake/files/7772109/nagano-cake.pdf)</br>
+#### ・[アプリケーション詳細設計/管理者側](https://github.com/Suuankoutankimati/nagano-cake/files/7772114/nagano-cake.pdf)</br>
 #### ・[ER図](https://github.com/Suuankoutankimati/nagano-cake/files/7772113/ER.nagano-cake.pdf)</br>
 #### ・[テーブル提議書](https://github.com/Suuankoutankimati/nagano-cake/files/7772133/nagano-cake.xlsx)</br>
 #### ・[要件定義書](https://github.com/Suuankoutankimati/nagano-cake/files/7772134/nagano-cake.pdf)</br>
