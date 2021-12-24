@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <%= render "layouts/sidebar", genres: @genres %>
+        <div class="mainContents col-sm-9 col-sm-push-3 col-md-9 col-md-push-3">
+            <h2 class="subtitle">My Page</h2>
+            
+            <div class="container form-contents">
+                <p>登録内容を変更する場合は[Mypageを編集する]ボタンをクリックしてください。</p>
+                <div class="actions">
+                    <%= link_to " MyPageを編集する",mypage_edit_customers_path,class:"form-button" %>
+                </div>
+            
+                <div class="row">
+                    <table class="table">
+                        <tr>
+                        <th scope="row col-4">氏名</th>
+                        <td class="col-8"><%= @customer.last_name %><%= @customer.first_name %></td>
+                        </tr>
+                        <tr>
+                        <th scope="row">カナ</th>
+                        <td><%= @customer.kana_last_name %><%= @customer.kana_first_name %></td>
+                        </tr>
+                        <tr>
+                        <th scope="row">郵便番号</th>
+                        <td><%= @customer.post_code %></td>
+                        </tr>
+                        <tr>
+                        <th scope="row">住所</th>
+                        <td><%= @customer.address %></td>
+                        </tr>
+                        <tr>
+                        <th scope="row">電話番号</th>
+                        <td><%= @customer.phone_number %></td>
+                        </tr>
+                        <tr>
+                        <th scope="row">メールアドレス</th>
+                        <td><%= @customer.email %></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="row justify-content-center">
+                <div class="actions">
+                    <%= link_to "配送先一覧",addresses_path,class:"form-button" %>
+                </div>
+                <div class="actions">
+                    <%= link_to "注文履歴一覧",orders_path,class:"form-button" %>
+                </div>
+                </div>
+                
+            
+        </div>
+    </div>
+</div>

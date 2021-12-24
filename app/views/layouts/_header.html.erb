@@ -1,0 +1,45 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light ">
+        <div class="container">
+            <div class="col-4">
+                <h1><%= link_to image_tag("logo.jpeg", height:"100px"), root_path, class:"header-logo" %></h1>
+            </div>
+            <div class="col-3">
+                <span class="navbar-text">
+                    <% if customer_signed_in? %>
+                        ようこそ、<%= current_customer.last_name %>さん！
+                    <% elsif admin_signed_in? %>
+                        管理者ページにログインしています。
+                    <% end %>
+                </span>
+            </div>
+            
+            <div class="col-5　ml-auto">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse ml-auto" id="navbarNavDropdown">
+                    <ul class="navbar-nav  ml-auto">
+                        <% if customer_signed_in? %>
+                            <li><%= link_to ' My Page',customers_path,class: ' nav-link text-body' %></li>
+                            <li><%= link_to ' Item',items_path,class: ' nav-link text-body' %></li>
+                            <li><%= link_to ' Cart',cart_items_path ,class: 'nav-link text-body'%></li>
+                            <li><%= link_to ' Log Out', destroy_customer_session_path, method: :delete,class: 'nav-link text-body' %></li>
+                        <% elsif admin_signed_in? %>
+                            <li><%= link_to "Item" , admin_items_path,class: "nav-link text-body" %></li>
+                            <li><%= link_to "Customer" , admin_customers_path,class: "nav-link text-body" %></li>
+                            <li><%= link_to "Order" , admin_orders_path,class: "nav-link text-body" %></li>
+                            <li><%= link_to "Category" , admin_genres_path,class: "nav-link text-body" %></li>
+                            <li><%= link_to "Log Out", destroy_admin_session_path, method: :delete,class: "nav-link text-body" %></li>
+                        <% else %>
+                            <li><%= link_to ' About',about_path,class: 'nav-link text-body' %></li>
+                            <li><%= link_to ' Item',items_path,class: 'nav-link text-body' %></li>
+                            <li><%= link_to ' Sigh Up', new_customer_registration_path,class: 'nav-link text-body text-body' %></li>
+                            <li><%= link_to ' Log In', new_customer_session_path ,class: 'nav-link text-body'%></li>
+                        <% end %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>

@@ -1,0 +1,64 @@
+
+
+
+  <div class="admintop">
+    <div class="">
+      <h1 class="admin">
+        <section class="log">管理者ログイン画面</section>
+       </h1>
+      </div>
+      </div>
+    </div>
+
+      <div class="row">
+       <div class="">
+        <!--<div class="adminpin">-->
+        <!--│一│一│一│二│二│二│三│三│三│四│◎│◎│◎│</br>-->
+        <!--│萬│萬│萬│萬│萬│萬│萬│萬│萬│萬│◎│◎│◎│</br>-->
+        <!--</div>-->
+      　</div>
+      　</div>
+
+      　<div class="adminform">
+      　  <div class="adminimage">
+
+
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="adminform">
+            <%= f.label :email, class: "label" %>
+              <span class="icon is-small is-left">
+                <i class="fas fa-envelope"></i>
+              </span>
+            <p class="has-icons-left">
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", size:"40x3", :placeholder => "email", class: "input" %>
+            </p>
+          </div>
+
+          <div class="adminform">
+            <%= f.label :password, class: "label" %>
+              <span class="icon is-small is-left">
+                <i class="fas fa-lock"></i>
+              </span>
+            <p class="has-icons-left">
+              <%= f.password_field :password, autocomplete: "current-password", size:"40x3", :placeholder => "password", class: "input" %>
+            </p>
+          </div>
+
+          <div class="adminform">
+            <%= f.submit "Log in", class: "button is-success" %>
+          </div>
+        <% end %>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+      
+      </div>
+      </div>
+
+
+
+
+
+<%= render "admin/shared/links" %>

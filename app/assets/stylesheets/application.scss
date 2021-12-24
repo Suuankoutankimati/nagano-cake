@@ -1,0 +1,401 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+@import url('https://fonts.googleapis.com/css2?family=Vollkorn&display=swap');
+
+
+
+// 「ログインしました」などのフラッシュ用スタイル
+
+.alert-notice {
+  @extend .alert-info;
+}
+
+.alert-alert {
+  @extend .alert-danger;
+}
+
+// ページ全体フォント、カラー
+body {
+  font-family: 'Vollkorn', serif;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #000000;
+  background-image: none;
+  background-color: #ffffff;
+  margin: 0 auto;
+}
+
+.link-text {
+  color: #000000;
+}
+
+// トップページの戻る
+#top-back {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
+.arrow{
+  width:      50px;
+  height:     50px;
+}
+
+// ヘッダーレイアウト
+.navbar {
+  margin-bottom: 40px;
+}
+
+.navbar-text {
+  margin-right: 10px;
+}
+
+.nav-link {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.navbar-toggler {
+  background-color: #224b37;
+}
+
+.navbar-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+// フッターレイアウト
+footer  {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  justify-content: center;
+  background-color: #ffffff;
+}
+
+.footer-logo {
+    display:flex;
+    justify-content: center;
+}
+
+.shop-info {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 8px;
+}
+
+// サイドバー適用
+
+.leftSide .sidePostage {
+    border: solid 2px #45993c;
+    color: #45993c;
+}
+.leftSide .sidePostage {
+    padding: 10px;
+    font-size: 0.85em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.leftSide .searchArea {
+    margin-bottom: 30px;
+    color: #333;
+}
+.leftSide .sidePostage .pPrice {
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 33px;
+}
+
+.search_container{
+  box-sizing: border-box;
+  position: relative;
+  border: 1px solid #999;
+  display: block;
+  padding: 3px 10px;
+  border-radius: 5px;
+  height: 40px;
+  width: 100%;
+}
+.search_container input[type="text"]{
+  border: none;
+  position: relative;
+  height: 2.0em;
+}
+.search_container input[type="text"]:focus {
+  outline: 0;
+}
+.search_container input[type="submit"]{
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background: #224b37;
+  color: #fff;
+  outline : none;
+  width: 25%;
+  height: 30px;
+  float: right;
+}
+
+
+// トップページ適用
+.newstable {
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+// 商品詳細ページ適用
+h2.item_title {
+    border-bottom: solid 1px #ccc;
+}
+.item__name {
+    margin: 50px 0 20px;
+    text-align: center;
+    font-size: 18px;
+}
+.item__mainImage {
+    text-align: center;
+}
+.item__price {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    display: block;
+}
+label {
+    font-weight: bold;
+}
+.purchaseButton {
+    margin-top: 20px;
+}
+
+.showtext {
+    margin-top: 30px;
+    margin-bottom: 200px;
+}
+
+// サインアップページ
+
+.subtitle {
+    font-weight: 400;
+    text-align: left;
+    margin-bottom: 30px;
+    border-bottom: solid 1px #cccccc;
+    float: none;
+    width: 100%;
+
+}
+
+// メインコンテンツフォーム
+
+.form-contents {
+  padding : 0 10% 10%;
+}
+
+// サイドばーなしメインコンテンツ
+.contents {
+  padding : 0 20% 5%;
+}
+
+.item-category {
+  margin: 10px 0;
+  font-weight: 700;
+  font-size: 18px;
+  text-align: center;
+  padding: 8px;
+  border-bottom: solid 1px #ccc;
+
+}
+
+
+.form-button {
+    background-color: #224b37;
+    color: #fff;
+    border-style: none;
+    padding: 10px 30px;
+    border-radius: 2px;
+    width: 200px;
+}
+
+.form-button-alert {
+    background-color: #468c6a;
+    color: #fff;
+    border-style: none;
+    padding: 10px 30px;
+    border-radius: 2px;
+    width: 200px;
+}
+
+.form-button-mini {
+    background-color: #224b37;
+    color: #fff;
+    border-style: none;
+    border-radius: 2px;
+    width: 50px;
+}
+
+.form-button-alert-mini {
+    background-color: #468c6a;
+    color: #fff;
+    border-style: none;
+    border-radius: 2px;
+    padding: 5px 10px;
+    width: 50px;
+}
+
+.actions {
+    text-align: center;
+    padding: 10px;
+    color: #fff;
+}
+
+
+
+
+// アバウトページ
+.ShopIntroduction {
+    margin: 30px 0;
+}
+
+.abouttable {
+    margin: 20px auto;
+}
+
+.justify-content-center {
+    margin: 30px 0;
+
+}
+
+// 注文一覧
+.show-button {
+    background-color: #224b37;
+    color: #fff;
+    border-style: none;
+    padding: 10px;
+    border-radius: 2px;
+    width: 200px;
+}
+
+// 注文履歴詳細
+.ordertitle {
+    border-bottom: solid 1px #cccccc;
+    margin-bottom: 70px;
+}
+
+// オーダーフロウ
+.order-flow {
+  margin: 5px auto 10px;
+}
+
+// カート
+
+dl {
+    width: 440px!important;
+    border-bottom: 1px solid#ddd;
+    text-align: left;
+}
+
+.totalprice {
+  font-size: 16px;
+}
+
+
+//管理者
+
+
+.adminpin {
+  color: #192;
+}
+
+.adminlog {
+  color: #111;
+}
+
+.adminform {
+  text-align: center;
+}
+
+.adminimage {
+  background-image: url(genki.jpg)
+}
+
+.admintop {
+  color: #DDDDDD;
+  text-align: center;
+  padding-top: 20px;
+
+}
+
+.table .p-details{
+    height: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+// 注文確認画面
+.paymentmethod {
+    margin: 40px 0 30px 0;
+}
+.orderconfirmation {
+    margin: 60px 0 90px 0;
+}
+
+ // 注文情報入力
+.address-select, .pay-select{
+    height: 50px;
+    line-height: 50px;
+    background-color: #dddddd;
+    border-bottom: 1px solid #ffffff;
+    padding: 5px 0 8px 5px;
+
+}
+
+.address-list, .pay-list {
+  margin-bottom: 70px;
+}
+
+select {
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 2px;
+  height: 40px;
+  width: 80%;
+}
+
+// 注文完了画面
+.thankstext {
+    margin-top: 60px;
+}
+
+.topbutton {
+    margin-top: 30px;
+    margin-bottom: 100px;
+}
+
+.image1 {
+  background-image: url(top用ケーキ.jpg);
+}
+.image2 {
+  background-image: url(アフタヌーンティー.jpg);
+}
+.image3 {
+  background-image: url(about用ケーキ.jpg);
+}
+#theTarget {
+  height: 500px;
+}

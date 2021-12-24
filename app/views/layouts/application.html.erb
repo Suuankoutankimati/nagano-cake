@@ -10,6 +10,15 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render "layouts/header" %>
+      <main>
+        <%= yield %>  
+      </main>
+    <%= render "layouts/footer" %>
+    <span id="top-back">
+    <a href="">
+      <%= image_tag asset_path('top.jpg'), data: {"turbolinks"=>false}, class: "arrow" %>
+    </a>
+  </span>
   </body>
 </html>

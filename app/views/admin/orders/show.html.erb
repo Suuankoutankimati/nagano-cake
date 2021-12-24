@@ -1,0 +1,111 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6 mx-auto ">
+      <div class="card">
+        <div class="card-body ">
+          <h3 class="card-title">会員詳細画面</h3>
+          <table>
+            <tbody>
+              <tr>
+                <th>会員情報</th>
+                <td><%= link_to "編　集", edit_admin_customer_path(@order.customer),class: "btn btn-light-danger btn-sm" %></td>
+              </tr>
+              <tr>
+                <th class="p-details">顧客ID</th>
+                  <td class="p-details">
+                    <%= @order.customer.id %>
+                    <!--%= @customer.is_deleted ?  %-->
+                    <% if @order.customer.is_deleted? %>
+                      <span><strong>　退会済み</strong></span>
+                    <% else %>
+                      <span>　　会員</span>
+                    <% end %>
+                  </td>
+              </tr>
+              <tr>
+                <!--名前をlink_toでその人の会員詳細に移動する-->
+                <th class="p-details">氏名</th>
+                <td class="p-details"><%= @order.customer.last_name %>　<%= @order.customer.first_name %></td>
+              </tr>
+              <tr>
+                <th class="p-details">注文日</th>
+                <td class="p-details"><%= @order.created_at.strftime("%Y年%m月%d日 ") %></td>
+              </tr>
+              <tr>
+                <th class="p-details">フリガナ</th>
+                <td class="p-details"><%= @order.customer.kana_last_name %>　<%= @order.customer.kana_first_name %></td>
+              </tr>
+              <tr>
+                <th class="p-details">配送先</th>
+                <td class="p-details"><%= @order.address %></td>
+              </tr>
+              <tr>
+                <th class="p-details">支払い方法</th>
+                <td class="p-details"><%= @order.payment_method_i18n %></td>
+              </tr>
+              <tr>
+                <th class="p-details">注文ステータス</th>
+                <td class="p-details"><%= form_with model:@order, url:admin_order_path(@order), local: true do |f| %>
+                    <%= f.select :status, Order.statuses_i18n.keys.map { |genki| [Order.statuses_i18n[genki], genki]} %></td>
+                <td><%= f.submit "更新" , class: "btn btn-light-success btn-sm" %>
+                    <% end %></td>
+              </tr>
+
+              </table>
+        </div>
+      </div>
+    </div>
+  </div>
+              <!--<tr>-->
+              <!--  <th>郵便番号</th>-->
+              <!--  <td><%#= @order.customer.post_code %></td>-->
+              <!--</tr>-->
+              <!--<tr>-->
+              <!--  <th>住所</th>-->
+              <!--  <td><%#= @order.customer.address %></td>-->
+              <!--</tr>-->
+              <!--<tr>-->
+              <!--  <th>電話番号</th>-->
+              <!--  <td><%#= @order.customer.phone_number %></td>-->
+              <!--</tr>-->
+              <!--<tr>-->
+              <!--  <th>メールアドレス</th>-->
+              <!--  <td><%#= @order.customer.email %></td>-->
+              <!--</tr>-->
+              <!--<tr>-->
+    </br>
+
+  <% @ordered.each do |order_detail| %>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-6 mx-auto">
+        <div class="card">
+          <div class="card-body">
+          <h6 class="card-title">購入情報</h6>
+          <p class="card-text">商品名</p>
+          <p class="card-text"><%= order_detail.item.name %></p>
+          <p class="card-text">単価</p>
+          <p class="card-text"><%= order_detail.item.name %></p>
+          <p class="card-text">数量</p>
+          <p class="card-text"><%= order_detail.amount %></p>
+          <p class="card-text">製作ステータス</p>
+          <p class="card-text"><small>
+            <%= form_with model:order_detail, url:admin_order_detail_path(order_detail), method: :patch, local: true do |f| %>
+            <%= f.select :making_status, OrderDetail.making_statuses_i18n.keys.map { |genki| [OrderDetail.making_statuses_i18n[genki], genki]}, class: "production_status-select " %></p>
+          <p class="card-text">
+          <%= f.submit "更新", class: "btn btn-light-success" %>
+          <% end %>
+          </small></p>
+             <p class="card-text">商品合計</p>
+          <p class="card-text"><%= order_detail.price * order_detail.amount %>　円</p>
+          <p class="card-text">送料</p>
+          <p class="card-text"><%= order_detail.shipping_cost %>　円</p>
+          <p class="card-text">請求金額</p>
+          <p class="card-text"><%= order_detail.price * order_detail.amount + order_detail.shipping_cost %>　円</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+

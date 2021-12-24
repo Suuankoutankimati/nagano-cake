@@ -1,0 +1,44 @@
+
+<% @genres.each  do |genre| %>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-6 mx-auto">
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-text">ジャンル名</h5>
+          <p class="card-title"><%= genre.name %></p>
+          <p class="card-text"><small><%= link_to("編集", edit_admin_genre_path(genre), class: "btn btn-autoline-success") %></small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%end%>
+  <div class="col-1 mx-auto">
+   <%= paginate @genres %>
+  </div>
+  </br>
+   <fieldset class="col-1 mx-auto">
+    <%= form_with(model: @genre, url: admin_genres_path, method: :post, local: true) do |f| %>
+      <%= f.label :ジャンル追加 %>
+      <%= f.text_field :name, class: 'form-control name' %>
+      <%= f.submit  class: 'btn btn-light' %>
+
+    <% end %>
+  </fieldset>
+  </br>
+  </br>
+
+
+
+
+
+
+
+
+
+
+
